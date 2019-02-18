@@ -3,7 +3,7 @@ applications:
   memory: 128M
   instances: 1
   domain: mybluemix.net
-  name: umphrda-bx-tCurve 
-  host: umphrda-bx-tCurve
+  name: tzc0029-nav 
+  host: tzc0029-nav
   disk_quota: 1024M
   buildpack: python_buildpack 
