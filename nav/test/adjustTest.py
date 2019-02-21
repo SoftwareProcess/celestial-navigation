@@ -77,10 +77,10 @@ class adjustTest(unittest.TestCase):
 
 
 
-    def test500_010ShouldVerifyCallToAdjust(self):
-        expectedResult = 1.0
-        actualResult = nav.adjust()
-        self.assertEquals(expectedResult, actualResult)
+#     def test500_010ShouldVerifyCallToAdjust(self):
+#         expectedResult = 1.0
+#         actualResult = nav.adjust()
+#         self.assertEquals(expectedResult, actualResult)
         
     def test500_020ShouldReturnDictionary(self):
         value = self.setParm('op','adjust')
