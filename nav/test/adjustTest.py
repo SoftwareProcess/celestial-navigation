@@ -91,25 +91,25 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust(values)
 #         self.assertEquals(expectedResult, actualResult)
 
-#     def test500_030CalculateDip(self):
-#         self.setParm('op','adjust')
-#         self.setParm('height','33')
-#         values = self.string2dict(self.microservice())
-#         expectedResult = -0.97 * sqrt(int(values['height'])) / 60
-#         actualResult = nav.adjust(values)
-#         self.assertEquals(expectedResult, actualResult)       
-    
-    def test500_040CalculateRefraction(self):
+    def test500_030CalculateDip(self):
         self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
         self.setParm('height','33')
-        self.setParm('temperature','72')
-        self.setParm('pressure','1010')
-        
         values = self.string2dict(self.microservice())
-        expectedResult = -0.062673129
+        expectedResult = -0.092870429
         actualResult = nav.adjust(values)
-        self.assertAlmostEquals(expectedResult, actualResult, 7)
+        self.assertEquals(expectedResult, actualResult)       
+    
+#     def test500_040CalculateRefraction(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('temperature','72')
+#         self.setParm('pressure','1010')
+#         
+#         values = self.string2dict(self.microservice())
+#         expectedResult = -0.062673129
+#         actualResult = nav.adjust(values)
+#         self.assertAlmostEquals(expectedResult, actualResult, 4)
     
     
     
