@@ -21,6 +21,9 @@ def dispatch(values=None):
     if (not(values.has_key('observation'))):
         values['error'] = 'observation is missing'
         return values
+    if not(values['observation'].contains('d')):
+        values['error'] = 'observation does not contain d'
+        return values
     x, y = values['observation'].split('d')
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
         values['error'] = 'observation is invalid'
