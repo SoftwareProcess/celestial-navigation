@@ -98,6 +98,8 @@ class DispatchTest(unittest.TestCase):
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
 #         self.assertDictEqual(self.inputDictionary, resultDictionary)
+
+
  
     # Sad path
     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
@@ -106,7 +108,7 @@ class DispatchTest(unittest.TestCase):
         self.assertTrue(resultDictionary.has_key("error"), True)
         
     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
-        values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid'}         
+        values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72'}         
         result = nav.dispatch(values)
         self.assertTrue(result.has_key("error"), False)    
     
