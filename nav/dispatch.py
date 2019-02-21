@@ -6,8 +6,11 @@ def dispatch(values=None):
         return {'error': 'parameter is missing'}
     if(not(isinstance(values,dict))):
         return {'error': 'parameter is not a dictionary'}
-    if (not('op' in values)):
+    if (not('op' in values) or values['op'] == ''):
         values['error'] = 'no op  is specified'
+        return values
+    if (not(values['op'] == 'adjust' or values['op'] == 'predict' or values['op'] == 'correct' or values['op'] == 'locate'))
+        values['error'] = 'op is not a legal operation'
         return values
 
     #Perform designated function
