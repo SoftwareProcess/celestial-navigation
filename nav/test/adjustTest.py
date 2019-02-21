@@ -107,7 +107,7 @@ class adjustTest(unittest.TestCase):
         self.setParm('pressure','1010')
         
         values = self.string2dict(self.microservice())
-        expectedResult = -0.62673129
+        expectedResult = -0.062673129
         actualResult = nav.adjust(values)
         self.assertAlmostEquals(expectedResult, actualResult)
     
