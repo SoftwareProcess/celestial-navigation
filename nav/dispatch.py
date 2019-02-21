@@ -9,10 +9,25 @@ def dispatch(values=None):
     if (not('op' in values) or values['op'] == ''):
         values['error'] = 'no op  is specified'
         return values
-    if (not(values['op'] == 'adjust')):
+    if (not(values['op'] == 'adjust' or 'predict' or 'correct' or 'locate')):
         values['error'] = 'op is not a legal operation'
         return values
-
+    if (values.has_key('altitude')):
+        values['error'] = 'altitude already exist'
+        return values
+    if (not(values.has_key('observation'))):
+        values['error'] = 'mandatory information is missing'
+        return values
+    x, y = values['observation'].split('d')
+    if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
+        values['error'] = 'observation is invalid'
+        return values
+    if (not(values.has_key('height'))):
+        values['height'] = '0'      
+    if (float(values['height']) < 0):
+        values['error'] = 'height is invalid'
+        return values
+    
 
 
 
