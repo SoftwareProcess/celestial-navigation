@@ -29,16 +29,17 @@ def dispatch(values=None):
         values['error'] = 'observation is invalid'
         return values
     
+    
     if (not(values.has_key('height'))):
         values['height'] = '0' 
-    if (not(values['height'].isdigit())):
+    if (not(values['height'].isint())):
         values['error'] = 'height is not a digit'    
         return values 
     elif (float(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values
     
-    if (not(values['temperature'].isdigit())):
+    if (not(values['temperature'].isint())):
         values['error'] = 'temperature is not a digit'    
         return values
     if (int(values['temperature']) > 120):
