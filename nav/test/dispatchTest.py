@@ -75,11 +75,11 @@ class DispatchTest(unittest.TestCase):
     #                        -- return {'error':'dictionary is missing'}
     # Happy path
 
-    def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
-        self.setParm('op','adjust')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
+#     def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
+#         self.setParm('op','adjust')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
 
     def test100_020ShouldReturnUnchangedValuesWithOperationPredict(self):
         self.setParm('op','predict')
