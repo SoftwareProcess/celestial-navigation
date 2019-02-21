@@ -153,3 +153,9 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
 
+    def test100_942ShouldReturnValuesWithErrorWhenObservationXOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','0d15.2')        
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
