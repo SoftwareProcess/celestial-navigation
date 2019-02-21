@@ -5,8 +5,7 @@ def dispatch(values=None):
     if(values == None):
         return {'error': 'parameter is missing'}
     if(not(isinstance(values,dict))):
-        values['error'] = 'parameter is not a dictionary'
-        return values
+        return {'error': 'parameter is not a dictionary'}
     if (not('op' in values) or values['op'] == ''):
         values['error'] = 'no op  is specified'
         return values
