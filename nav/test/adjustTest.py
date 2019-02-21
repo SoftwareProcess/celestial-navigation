@@ -92,9 +92,10 @@ class adjustTest(unittest.TestCase):
 
     def test500_030CalculateDip(self):
         self.setParm('op','adjust')
+        self.setParm('height','33')
         values = self.string2dict(self.microservice())
-        expectedResult = True
-        actualResult = (values['op'] == 'adjust')
+        expectedResult = -0.97 * sqrt(int(values['height'])) / 60
+        actualResult = nav.adjust(values)
         self.assertEquals(expectedResult, actualResult)       
     
     
