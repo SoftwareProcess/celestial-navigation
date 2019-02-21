@@ -52,12 +52,40 @@ class adjustTest(unittest.TestCase):
 
 
 
+# 500 adjust
+#    Analysis
+#        inputs
+#            observation -> string, mandatory, validated
+#            height -> string, not mandatory, validated
+#            temperature -> string, not mandatory, validated
+#            pressure -> string, not mandatory, validated
+#            horizon -> string, not mandatory, validated
+#        outputs
+#            altitude -> string, mandatory, validated
+#            observation -> string, mandatory, validated
+#            height -> string, not mandatory, validated
+#            temperature -> string, not mandatory, validated
+#            pressure -> string, not mandatory, validated
+#            horizon -> string, not mandatory, validated
+#    Happy path analysis
+#        strategy: exercise code from simple to hard
+#        1) return a constant
+#        2) return a dictionary
 
 
 
-    def test500_010shouldVerifyCallToAdjust(self):
+
+
+
+    def test500_010ShouldVerifyCallToAdjust(self):
         expectedResult = 1.0
         actualResult = nav.adjust()
+        self.assertEquals(expectedResult, actualResult)
+        
+    def test500_020ShouldReturnDictionary(self):
+        value = self.setParm('op','adjust')
+        expectedResult = value
+        actualResult = nav.adjust(value)
         self.assertEquals(expectedResult, actualResult)
         
     
