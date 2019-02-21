@@ -109,7 +109,7 @@ class adjustTest(unittest.TestCase):
         values = self.string2dict(self.microservice())
         expectedResult = -0.062673129
         actualResult = nav.adjust(values)
-        self.assertAlmostEquals(expectedResult, actualResult, 4)
+        self.assertAlmostEquals(expectedResult, actualResult, 5)
     
     
     
