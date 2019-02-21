@@ -91,11 +91,12 @@ class adjustTest(unittest.TestCase):
 #         self.assertEquals(expectedResult, actualResult)
 
     def test500_030CalculateDip(self):
-#        values = self.setParm('op','adjust')
-        self.setParm('height','33')
-        height = int(self['height'])
-        expectedResult = -0.97 * sqrt(height) / 60
-        actualResult = 1
+        values = self.setParm('op','adjust')
+        
+#         height = int(self['height'])
+#         expectedResult = -0.97 * sqrt(height) / 60
+        expectedResult = values['op']
+        actualResult = 'adjust'
         self.assertEquals(expectedResult, actualResult)       
     
     
