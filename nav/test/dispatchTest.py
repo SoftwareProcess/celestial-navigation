@@ -104,14 +104,20 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
+        
+    def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
+        values = {'observation': '5d5', 'op' = 'adjust', 'error' = 'invalid'}         
+        result = nav.dispatch(values)
+        self.assertTrue(result.has_key("error"), False)    
+    
  
-    def test100_911ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
+    def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
         self.setParm('op','unknown')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
  
-    def test100_912ShouldReturnValuesWithErrorWhenOpIsBlank(self):
+    def test100_913ShouldReturnValuesWithErrorWhenOpIsBlank(self):
         self.setParm('op','')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
@@ -125,5 +131,7 @@ class DispatchTest(unittest.TestCase):
     def test100_921ShouldReturnValuesWithErrorWhenDictionaryMissing(self):         
         result = nav.dispatch()
         self.assertTrue(result.has_key("error"), True)
+    
+ 
     
 
