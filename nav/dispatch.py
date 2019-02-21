@@ -41,7 +41,9 @@ def dispatch(values=None):
     if (not(values['temperature'].isdigit())):
         values['error'] = 'temperature is not a digit'    
         return values
-
+    elif (int(values['temperature']) > 120):
+        values['error'] = 'temperature is out of bound'
+        return values
 
 
     #Perform designated function
