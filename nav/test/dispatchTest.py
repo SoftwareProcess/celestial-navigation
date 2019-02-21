@@ -106,7 +106,7 @@ class DispatchTest(unittest.TestCase):
         self.assertTrue(resultDictionary.has_key("error"), True)
         
     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
-        values = {'observation': '5d5', 'op': 'adjust', 'error' = 'invalid'}         
+        values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid'}         
         result = nav.dispatch(values)
         self.assertTrue(result.has_key("error"), False)    
     
