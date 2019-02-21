@@ -21,7 +21,7 @@ def dispatch(values=None):
     if (not(values.has_key('observation'))):
         values['error'] = 'observation is missing'
         return values
-    if not('d' in values['observation']):
+    if ('d' in values['observation']):
         values['error'] = 'observation does not contain d'
         return values
     x, y = values['observation'].split('d')
