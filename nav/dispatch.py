@@ -19,7 +19,7 @@ def dispatch(values=None):
         values['error'] = 'altitude already exist'
         return values
     if (not(values.has_key('observation'))):
-        values['error'] = 'mandatory information is missing'
+        values['error'] = 'observation is missing'
         return values
     x, y = values['observation'].split('d')
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
