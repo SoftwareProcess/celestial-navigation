@@ -9,7 +9,7 @@ def dispatch(values=None):
     if (not('op' in values) or values['op'] == ''):
         values['error'] = 'no op  is specified'
         return values
-    if (not(values['op'] == 'adjust' or values['op'] == 'predict' or values['op'] == 'correct' or values['op'] == 'locate'))
+    if (not(values['op'] == 'adjust')):
         values['error'] = 'op is not a legal operation'
         return values
 
