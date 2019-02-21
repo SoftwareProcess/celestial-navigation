@@ -4,7 +4,7 @@ def adjust(values = None):
     
     degree, minut =  values['observation'].split('d')
     minutes = int(degree) + float(minut) / 60
-    radians = float(minutes * pi / (60 * 180))
+    radians = float(minutes * pi / 180)
     height = int(values['height'])
     temperature = int(values['temperature'])
     pressure = int(values['pressure'])
