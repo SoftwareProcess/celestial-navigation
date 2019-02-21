@@ -76,7 +76,7 @@ class adjustTest(unittest.TestCase):
 #        4) return the correct refraction
 #        5) return the correct altitude
 #        6) round altitude to nearest 0.1 arc-minute
-
+#        7) check if adjust can return desired dictionary
 
 
 
@@ -126,17 +126,33 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust(values)
 #         self.assertAlmostEquals(expectedResult, actualResult, 4)  
         
-    def test500_060Roundaltitude(self):
+#     def test500_060Roundaltitude(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('temperature','72')
+#         self.setParm('pressure','1010') 
+#         values = self.string2dict(self.microservice())
+#         expectedResult = '13d42.3'
+#         actualResult = nav.adjust(values)
+#         self.assertEquals(expectedResult, actualResult)  
+    
+    def test500_070Roundaltitude(self):
         self.setParm('op','adjust')
         self.setParm('observation','13d51.6')
         self.setParm('height','33')
         self.setParm('temperature','72')
-        self.setParm('pressure','1010') 
+        self.setParm('pressure','1010')
+        self.setParm('horizon','natural')
         values = self.string2dict(self.microservice())
-        expectedResult = '13d42.3'
+        expectedResult = {'altitude':'29d59.9', 
+                          'observation': '30d1.5', 
+                          'height': '19.0', 
+                          'pressure': '1000', 
+                          'horizon': 'artificial', 
+                          'op': 'adjust',
+                          'temperature': '72'}
         actualResult = nav.adjust(values)
-        self.assertEquals(expectedResult, actualResult)  
-    
-    
+        self.assertEquals(expectedResult, actualResult)
     
     
