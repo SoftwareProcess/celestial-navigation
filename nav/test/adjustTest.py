@@ -72,7 +72,8 @@ class adjustTest(unittest.TestCase):
 #        strategy: exercise code from simple to hard
 #        1) return a constant
 #        2) return a dictionary
-#        3) 
+#        3) return the correct dip
+#        4) return the correct refraction
 
 
 
@@ -90,15 +91,23 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust(values)
 #         self.assertEquals(expectedResult, actualResult)
 
-    def test500_030CalculateDip(self):
+#     def test500_030CalculateDip(self):
+#         self.setParm('op','adjust')
+#         self.setParm('height','33')
+#         values = self.string2dict(self.microservice())
+#         expectedResult = -0.97 * sqrt(int(values['height'])) / 60
+#         actualResult = nav.adjust(values)
+#         self.assertEquals(expectedResult, actualResult)       
+    
+    def test500_040CalculateRefraction(self):
         self.setParm('op','adjust')
-        self.setParm('height','33')
+        self.setParm('observation','13d51.6')
+        self.setParm('temperature','72')
+        self.setParm('pressure','1010')
         values = self.string2dict(self.microservice())
-        expectedResult = -0.97 * sqrt(int(values['height'])) / 60
+        expectedResult = -0.62673129
         actualResult = nav.adjust(values)
-        self.assertEquals(expectedResult, actualResult)       
-    
-    
+        self.assertAlmostEquals(expectedResult, actualResult)
     
     
     
