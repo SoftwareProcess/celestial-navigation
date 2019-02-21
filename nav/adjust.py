@@ -15,5 +15,5 @@ def adjust(values = None):
     refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / tan(radians)
     
     
-    result = refraction
+    result = refraction.real
     return result
