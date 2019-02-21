@@ -102,77 +102,77 @@ class DispatchTest(unittest.TestCase):
 
  
     # Sad path
-    def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-        
-    def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
-        values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72', 'pressure': '1000'}         
-        result = nav.dispatch(values)
-        self.assertFalse(result.has_key("error"), True)    
-
-    def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
-        self.setParm('op','unknown')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
- 
-    def test100_913ShouldReturnValuesWithErrorWhenOpIsBlank(self):
-        self.setParm('op','')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-        
-    def test100_920ShouldReturnValuesWithErrorWhenNotDictionary(self):  
-        values = 42         
-        result = nav.dispatch(values)
-        self.assertTrue(result.has_key("error"), True)
-        
-    def test100_921ShouldReturnValuesWithErrorWhenDictionaryMissing(self):         
-        result = nav.dispatch()
-        self.assertTrue(result.has_key("error"), True)
-    
-    def test100_930ShouldReturnValuesWithErrorWhenAltitudePresent(self):
-        self.setParm('op','adjust')
-        self.setParm('altitude','a')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-    
-    def test100_940ShouldReturnValuesWithErrorWhenObservationMissing(self):
-        self.setParm('op','adjust')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-    
-    def test100_941ShouldReturnValuesWithErrorWhenObservationXOutOfUpperBound(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','90d15.2')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-
-    def test100_942ShouldReturnValuesWithErrorWhenObservationXOutOfLowerBound(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','0d15.2')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-        
-    def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','45d60')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
-        
-    def test100_944ShouldReturnValuesWithErrorWhenObservationYOutOfLowerBound(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','45d-1')        
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
+#     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#         
+#     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
+#         values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72', 'pressure': '1000'}         
+#         result = nav.dispatch(values)
+#         self.assertFalse(result.has_key("error"), True)    
+# 
+#     def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
+#         self.setParm('op','unknown')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#  
+#     def test100_913ShouldReturnValuesWithErrorWhenOpIsBlank(self):
+#         self.setParm('op','')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#         
+#     def test100_920ShouldReturnValuesWithErrorWhenNotDictionary(self):  
+#         values = 42         
+#         result = nav.dispatch(values)
+#         self.assertTrue(result.has_key("error"), True)
+#         
+#     def test100_921ShouldReturnValuesWithErrorWhenDictionaryMissing(self):         
+#         result = nav.dispatch()
+#         self.assertTrue(result.has_key("error"), True)
+#     
+#     def test100_930ShouldReturnValuesWithErrorWhenAltitudePresent(self):
+#         self.setParm('op','adjust')
+#         self.setParm('altitude','a')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#     
+#     def test100_940ShouldReturnValuesWithErrorWhenObservationMissing(self):
+#         self.setParm('op','adjust')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#     
+#     def test100_941ShouldReturnValuesWithErrorWhenObservationXOutOfUpperBound(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','90d15.2')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+# 
+#     def test100_942ShouldReturnValuesWithErrorWhenObservationXOutOfLowerBound(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','0d15.2')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#         
+#     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','45d60')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
+#         
+#     def test100_944ShouldReturnValuesWithErrorWhenObservationYOutOfLowerBound(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','45d-1')        
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
         
 #     def test100_945ShouldReturnValuesWithErrorWhenObservationDMissing(self):
 #         self.setParm('op','adjust')
@@ -189,13 +189,13 @@ class DispatchTest(unittest.TestCase):
 #         resultDictionary = self.string2dict(result)
 #         self.assertTrue(resultDictionary.has_key("error"), True)
         
-    def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','45d12')
-        self.setParm('height','-1')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
+#     def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','45d12')
+#         self.setParm('height','-1')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertTrue(resultDictionary.has_key("error"), True)
     
 #     def test100_960ShouldReturnValuesWithErrorWhenTemperatureNotInteger(self):
 #         self.setParm('op','adjust')
