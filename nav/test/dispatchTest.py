@@ -140,10 +140,16 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
     
-    def test100_950ShouldReturnValuesWithErrorWhenObservationMissing(self):
+    def test100_940ShouldReturnValuesWithErrorWhenObservationMissing(self):
         self.setParm('op','adjust')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
     
+    def test100_941ShouldReturnValuesWithErrorWhenObservationXOutOfUpperBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','90d15.2')        
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
 
