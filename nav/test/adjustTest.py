@@ -75,6 +75,7 @@ class adjustTest(unittest.TestCase):
 #        3) return the correct dip
 #        4) return the correct refraction
 #        5) return the correct altitude
+#        6) round altitude to nearest 0.1 arc-minute
 
 
 
@@ -114,16 +115,27 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust(values)
 #         self.assertAlmostEquals(expectedResult, actualResult, 4)
     
-    def test500_050Calculatealtitude(self):
+#     def test500_050Calculatealtitude(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('temperature','72')
+#         self.setParm('pressure','1010') 
+#         values = self.string2dict(self.microservice())
+#         expectedResult = 13.70445644
+#         actualResult = nav.adjust(values)
+#         self.assertAlmostEquals(expectedResult, actualResult, 4)  
+        
+    def test500_060Roundaltitude(self):
         self.setParm('op','adjust')
         self.setParm('observation','13d51.6')
         self.setParm('height','33')
         self.setParm('temperature','72')
         self.setParm('pressure','1010') 
         values = self.string2dict(self.microservice())
-        expectedResult = 13.70445644
+        expectedResult = '13d42.3'
         actualResult = nav.adjust(values)
-        self.assertAlmostEquals(expectedResult, actualResult, 4)    
+        self.assertEquals(expectedResult, actualResult)  
     
     
     
