@@ -13,6 +13,9 @@ def dispatch(values=None):
         values['error'] = 'op is not a legal operation'
         return values
 
+
+
+
     #Perform designated function
     if(values['op'] == 'adjust'):
         result = adjust.adjust(values)

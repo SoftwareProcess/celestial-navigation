@@ -3,6 +3,7 @@ import nav.adjust as nav
 from urllib import urlencode
 import httplib
 import json
+from cmath import sqrt
 
 class adjustTest(unittest.TestCase):
 
@@ -71,6 +72,7 @@ class adjustTest(unittest.TestCase):
 #        strategy: exercise code from simple to hard
 #        1) return a constant
 #        2) return a dictionary
+#        3) 
 
 
 
@@ -82,12 +84,18 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust()
 #         self.assertEquals(expectedResult, actualResult)
         
-    def test500_020ShouldReturnDictionary(self):
-        value = self.setParm('op','adjust')
-        expectedResult = value
-        actualResult = nav.adjust(value)
-        self.assertEquals(expectedResult, actualResult)
-        
+#     def test500_020ShouldReturnDictionary(self):
+#         values = self.setParm('op','adjust')
+#         expectedResult = values
+#         actualResult = nav.adjust(values)
+#         self.assertEquals(expectedResult, actualResult)
+
+    def test500_030CalculateDip(self):
+        values = self.setParm('op','adjust')
+        values = self.setParm('height','33')
+        expectedResult = -0.97 * sqrt(values['height']) / 60
+        actualResult = nav.adjust(values)
+        self.assertEquals(expectedResult, actualResult)       
     
     
     
