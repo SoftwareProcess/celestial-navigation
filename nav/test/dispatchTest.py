@@ -174,9 +174,17 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
         
-#     def test100_955ShouldReturnValuesWithErrorWhenObservationDMissing(self):
+#     def test100_945ShouldReturnValuesWithErrorWhenObservationDMissing(self):
 #         self.setParm('op','adjust')
 #         self.setParm('observation','31')           
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
 #         self.assertTrue(resultDictionary.has_key("error"), True)
+
+    def test100_960ShouldReturnValuesWithErrorWhenHeightNotNumerical(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d12')
+        self.setParm('height','a')
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
