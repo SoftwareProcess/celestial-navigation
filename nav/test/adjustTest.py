@@ -91,7 +91,8 @@ class adjustTest(unittest.TestCase):
 #         self.assertEquals(expectedResult, actualResult)
 
     def test500_030CalculateDip(self):
-        values = self.setParm('op','adjust')
+        self.setParm('op','adjust')
+        values = self.microservice()
         expectedResult = True
         actualResult = (values.get('op') == 'adjust')
         self.assertEquals(expectedResult, actualResult)       
