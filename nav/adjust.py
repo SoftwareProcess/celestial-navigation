@@ -13,7 +13,7 @@ def adjust(values = None):
     
     dip = -0.97 * sqrt(height) / 60   
     refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / tan(radians)
-    altitude = 1
+    altitude = degrees + dip + refraction
     
     result = altitude
     return result
