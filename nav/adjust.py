@@ -1,4 +1,4 @@
-from cmath import sqrt, tan, pi
+from math import sqrt, tan, pi
 
 def adjust(values = None):
     
