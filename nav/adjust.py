@@ -3,7 +3,7 @@ from cmath import sqrt, tan, pi
 def adjust(values = None):
     
     degree, minut =  values['observation'].split('d')
-    minutes = int(degree) + float(minut) / 60
+    minutes = float(degree) + float(minut) / 60
     radians = float(minutes * pi / 180)
     height = int(values['height'])
     temperature = int(values['temperature'])
