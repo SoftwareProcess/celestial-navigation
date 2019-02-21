@@ -118,7 +118,7 @@ class DispatchTest(unittest.TestCase):
         self.assertTrue(resultDictionary.has_key("error"), True)
         
     def test100_920ShouldReturnValuesWithErrorWhenNotDictionary(self):           
-        result = nav.dispatch(42)
+        result = nav.dispatch('42')
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
 
