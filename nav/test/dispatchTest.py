@@ -205,10 +205,18 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
 
-    def test100_970ShouldReturnValuesWithErrorWhenTemperatureOutOfUpperBound(self):
+    def test100_961ShouldReturnValuesWithErrorWhenTemperatureOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
         self.setParm('temperature','123')
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
+        
+    def test100_971ShouldReturnValuesWithErrorWhenTemperatureOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d12')
+        self.setParm('temperature','-12')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
