@@ -111,8 +111,7 @@ class DispatchTest(unittest.TestCase):
         values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72', 'pressure': '1000'}         
         result = nav.dispatch(values)
         self.assertFalse(result.has_key("error"), True)    
-    
- 
+
     def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
         self.setParm('op','unknown')        
         result = self.microservice()
@@ -134,6 +133,12 @@ class DispatchTest(unittest.TestCase):
         result = nav.dispatch()
         self.assertTrue(result.has_key("error"), True)
     
+    def test100_930ShouldReturnValuesWithErrorWhenAltitudePresent(self):
+        self.setParm('op','adjust')
+        self.setParm('altitude','a')        
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
  
     
 
