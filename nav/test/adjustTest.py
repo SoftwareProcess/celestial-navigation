@@ -100,7 +100,7 @@ class adjustTest(unittest.TestCase):
         values = self.string2dict(self.microservice())
         expectedResult = -0.092870429
         actualResult = nav.adjust(values)
-        self.assertAlomostEquals(expectedResult, actualResult)       
+        self.assertAlmostEquals(expectedResult, actualResult)       
     
 #     def test500_040CalculateRefraction(self):
 #         self.setParm('op','adjust')
