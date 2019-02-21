@@ -116,4 +116,9 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
+        
+    def test100_920ShouldReturnValuesWithErrorWhenNotDictionary(self):           
+        result = nav.dispatch(42)
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
 
