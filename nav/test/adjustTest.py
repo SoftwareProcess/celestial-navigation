@@ -57,7 +57,7 @@ class adjustTest(unittest.TestCase):
 
     def test500_010shouldVerifyCallToAdjust(self):
         expectedResult = 1.0
-        actualResult = self.adjust()
+        actualResult = nav.adjust()
         self.assertEquals(expectedResult, actualResult)
         
     
