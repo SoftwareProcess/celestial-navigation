@@ -176,8 +176,7 @@ class DispatchTest(unittest.TestCase):
         
     def test100_955ShouldReturnValuesWithErrorWhenObservationDMissing(self):
         self.setParm('op','adjust')
-        self.setParm('observation','45d12')
-                
+        self.setParm('observation','31')           
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-        self.assertFalse(resultDictionary.has_key("error"))
+        self.assertTrue(resultDictionary.has_key("error"), True)
