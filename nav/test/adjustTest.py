@@ -95,8 +95,8 @@ class adjustTest(unittest.TestCase):
         
 #         height = int(self['height'])
 #         expectedResult = -0.97 * sqrt(height) / 60
-        expectedResult = values['op']
-        actualResult = 'adjust'
+        expectedResult = true
+        actualResult = (values['op'] == 'adjust')
         self.assertEquals(expectedResult, actualResult)       
     
     
