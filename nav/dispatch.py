@@ -32,15 +32,15 @@ def dispatch(values=None):
     
     if (not(values.has_key('height'))):
         values['height'] = '0' 
-    if (not(values['height'].isint())):
-        values['error'] = 'height is not a digit'    
+    if (not(values['height'].isint()) and not(values['height'].isfloat())):
+        values['error'] = 'height is not numeric'    
         return values 
-    elif (float(values['height']) < 0):
+    if (float(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values
     
     if (not(values['temperature'].isint())):
-        values['error'] = 'temperature is not a digit'    
+        values['error'] = 'temperature is not an integer'    
         return values
     if (int(values['temperature']) > 120):
         values['error'] = 'temperature is out of bound'
