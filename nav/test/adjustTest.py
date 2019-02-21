@@ -94,7 +94,7 @@ class adjustTest(unittest.TestCase):
         self.setParm('op','adjust')
         values = self.microservice()
         expectedResult = True
-        actualResult = (values.get('op') == 'adjust')
+        actualResult = (values['op'] == 'adjust')
         self.assertEquals(expectedResult, actualResult)       
     
     
