@@ -38,10 +38,10 @@ def dispatch(values=None):
         values['error'] = 'height is invalid'
         return values
     
-    if (not(values['temperature'].isdigit())):
-        values['error'] = 'temperature is not a digit'    
-        return values
-    elif (int(values['temperature']) > 120):
+#     if (not(values['temperature'].isdigit())):
+#         values['error'] = 'temperature is not a digit'    
+#         return values
+    if (int(values['temperature']) > 120):
         values['error'] = 'temperature is out of bound'
         return values
 
