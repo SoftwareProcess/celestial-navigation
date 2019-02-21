@@ -1,4 +1,4 @@
-from cmath import sqrt, atan, pi
+from cmath import sqrt, tan, pi
 
 def adjust(values = None):
     
@@ -12,7 +12,7 @@ def adjust(values = None):
     
     
     dip = -0.97 * sqrt(height) / 60   
-    refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / atan(radians)
+    refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / tan(radians)
     
     
     result = refraction
