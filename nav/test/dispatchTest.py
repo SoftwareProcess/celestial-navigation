@@ -110,7 +110,7 @@ class DispatchTest(unittest.TestCase):
     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
         values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72', 'pressure': '1000'}         
         result = nav.dispatch(values)
-        self.assertTrue(result.has_key("error"), False)    
+        self.assertFalse(result.has_key("error"), True)    
     
  
     def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
