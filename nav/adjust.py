@@ -16,6 +16,8 @@ def adjust(values = None):
     altitude = degrees + dip + refraction
     x = int(altitude)
     y = round(altitude % 1 * 60, 1)
-    altitude = str(x) + 'd' + str(y)
-    result = altitude
+    altitude = str(x) + 'd' + str(y) 
+    values['altitude'] = altitude
+    
+    result = values
     return result
