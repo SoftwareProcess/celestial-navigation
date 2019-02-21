@@ -81,23 +81,23 @@ class DispatchTest(unittest.TestCase):
 #         resultDictionary = self.string2dict(result)
 #         self.assertDictEqual(self.inputDictionary, resultDictionary)
 
-    def test100_020ShouldReturnUnchangedValuesWithOperationPredict(self):
-        self.setParm('op','predict')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
- 
-    def test100_030ShouldReturnUnchangedValuesWithOperationCorrect(self):
-        self.setParm('op','correct')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
-        
-    def test100_040ShouldReturnUnchangedValuesWithOperationLocate(self):
-        self.setParm('op','locate')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
+#     def test100_020ShouldReturnUnchangedValuesWithOperationPredict(self):
+#         self.setParm('op','predict')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
+#  
+#     def test100_030ShouldReturnUnchangedValuesWithOperationCorrect(self):
+#         self.setParm('op','correct')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
+#         
+#     def test100_040ShouldReturnUnchangedValuesWithOperationLocate(self):
+#         self.setParm('op','locate')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
  
     # Sad path
     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
