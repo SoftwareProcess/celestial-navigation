@@ -5,5 +5,5 @@ def adjust(values = None):
     
     
     
-    result = 1
+    result = values
     return result
