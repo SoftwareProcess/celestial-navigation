@@ -4,7 +4,7 @@ from urllib import urlencode
 import json
 
 import nav.dispatch as nav
-import nav.adjust as adjust
+from nav import adjust
 
 class DispatchTest(unittest.TestCase):
     
