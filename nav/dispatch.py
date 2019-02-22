@@ -45,7 +45,12 @@ def dispatch(values=None):
     if (int(values['temperature']) > 120):
         values['error'] = 'temperature is out of bound'
         return values
-
+    
+    if (not(values['temperature'].isint())):
+        values['error'] = 'temperature is not an integer'    
+        return values
+    
+    
 
     #Perform designated function
     if(values['op'] == 'adjust'):
@@ -60,3 +65,18 @@ def dispatch(values=None):
     else:
         values['error'] = 'op is not a legal operation'
         return values
+
+
+    def isint(arg):
+        try:
+            int(arg)
+            return True
+        except ValueError:
+            return False
+        
+    def isfloat(arg):
+        try:
+            float(arg)
+            return True
+        except ValueError:
+            return False
