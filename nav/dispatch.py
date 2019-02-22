@@ -12,9 +12,6 @@ def dispatch(values=None):
     if (not('op' in values) or values['op'] == ''):
         values['error'] = 'no op  is specified'
         return values
-    if (not(values['op'] == 'adjust')):
-        values['error'] = 'op is not a legal operation'
-        return values
     if (values.has_key('altitude')):
         values['error'] = 'altitude already exist'
         return values
