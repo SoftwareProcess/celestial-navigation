@@ -179,7 +179,7 @@ class DispatchTest(unittest.TestCase):
               
     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
         self.setParm('op','adjust')
-        self.setParm('observation','45d12')        
+        self.setParm('observation','45d70')        
         result = nav.dispatch(self.inputDictionary)
         self.assertTrue(result.has_key("error"), True)
                 
