@@ -109,6 +109,47 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice() 
         resultDictionary = self.string2dict(result)
         self.assertEquals(resultDictionary['altitude'], '13d42.3')
+    
+    def test100_020ShouldReturnCorrectHeightWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('temperature','72')
+        self.setParm('pressure','1010')
+        self.setParm('horizon','natural')
+        result = self.microservice() 
+        resultDictionary = self.string2dict(result)
+        self.assertEquals(resultDictionary['height'], '0')
+    
+    def test100_030ShouldReturnCorrectTemperatureWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('height','33')
+        self.setParm('pressure','1010')
+        self.setParm('horizon','natural')
+        result = self.microservice() 
+        resultDictionary = self.string2dict(result)
+        self.assertEquals(resultDictionary['temperature'], '72')
+    
+    def test100_040ShouldReturnCorrectPressureWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('height','33')
+        self.setParm('temperature','72')
+        self.setParm('horizon','natural')
+        result = self.microservice() 
+        resultDictionary = self.string2dict(result)
+        self.assertEquals(resultDictionary['pressure'], '1010')
+    
+    def test100_050ShouldReturnCorrectHorizonWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('height','33')
+        self.setParm('temperature','72')
+        self.setParm('pressure','1010')
+        result = self.microservice() 
+        resultDictionary = self.string2dict(result)
+        self.assertEquals(resultDictionary['natural'], 'horizon')
+        
  
     # Sad path
     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
@@ -168,7 +209,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
-##todo             
+             
     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')        
@@ -190,7 +231,7 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
 #########################################################################################      
-  ###todo   
+   
     def test100_950ShouldReturnValuesWithErrorWhenHeightNotNumerical(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -198,7 +239,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
- ###todo                
+               
     def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -206,7 +247,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
-  ###todo             
+             
     def test100_960ShouldReturnValuesWithErrorWhenTemperatureNotInteger(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -215,7 +256,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
- ###todo         
+         
     def test100_961ShouldReturnValuesWithErrorWhenTemperatureOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -223,7 +264,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
- ###todo                
+                
     def test100_962ShouldReturnValuesWithErrorWhenTemperatureOutOfLowerBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -231,7 +272,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
-  ###todo               
+               
     def test100_970ShouldReturnValuesWithErrorWhenPressureNotInteger(self):
         self.setParm('op','adjust')
         self.setParm('observation','33d12.5')
@@ -239,7 +280,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
-  ###todo              
+              
     def test100_971ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation', '33d12.5')
@@ -247,7 +288,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True) 
-  ###todo   
+   
     def test100_982ShouldReturnValuesWithErrorWhenPressureOutOfLowerBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
@@ -255,7 +296,7 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True) 
-  ###todo       
+       
     def test100_990ShouldReturnValuesWithErrorWhenHorizonInvalid(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')

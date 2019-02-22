@@ -151,7 +151,8 @@ class adjustTest(unittest.TestCase):
                           'pressure': '1010', 
                           'horizon': 'natural', 
                           'op': 'adjust',
-                          'temperature': '72'}       
+                          'temperature': '72'}
+        
         self.assertEquals(expectedResult, actualResult)
     
     
