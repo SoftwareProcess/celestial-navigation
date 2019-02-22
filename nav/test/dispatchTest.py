@@ -232,7 +232,7 @@ class DispatchTest(unittest.TestCase):
     def test100_970ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
-        self.setParm('pressure','1101')
+        self.setParm('pressure','1111')
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True) 
