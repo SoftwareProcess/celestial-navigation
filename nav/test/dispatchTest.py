@@ -162,7 +162,7 @@ class DispatchTest(unittest.TestCase):
 #             
     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
         self.setParm('op','adjust')
-        self.setParm('observation','45d45')        
+        self.setParm('observation','45d12')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)

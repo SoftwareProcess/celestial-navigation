@@ -18,10 +18,10 @@ def dispatch(values=None):
     if (not(values.has_key('observation'))):
         values['error'] = 'observation is missing'
         return values
-    if ('d' not in values['observation']):
-        values['error'] = 'observation does not contain d'
-        return values
-    x, y = values['observation'].split('d')
+#     if ('d' not in values['observation']):
+#         values['error'] = 'observation does not contain d'
+#         return values
+#     x, y = values['observation'].split('d')
 #     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
 #         values['error'] = 'observation is invalid'
 #         return values
@@ -71,16 +71,16 @@ def dispatch(values=None):
         return values
 
 
-#     def isint(arg):
-#         try:
-#             int(arg)
-#             return True
-#         except ValueError:
-#             return False
-#         
-#     def isfloat(arg):
-#         try:
-#             float(arg)
-#             return True
-#         except ValueError:
-#             return False
+    def isint(arg):
+        try:
+            int(arg)
+            return True
+        except ValueError:
+            return False
+         
+    def isfloat(arg):
+        try:
+            float(arg)
+            return True
+        except ValueError:
+            return False
