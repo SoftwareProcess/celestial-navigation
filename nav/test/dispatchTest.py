@@ -93,7 +93,7 @@ class DispatchTest(unittest.TestCase):
         self.setParm('pressure','1010')
         self.setParm('horizon','natural')
         result = nav.dispatch(self.inputDictionary) 
-        self.assertEquals(resultDictionary['height'], '0')
+        self.assertEquals(result['height'], '0')
      
 #     def test100_030ShouldReturnCorrectTemperatureWhenMissing(self):
 #         self.setParm('op','adjust')
