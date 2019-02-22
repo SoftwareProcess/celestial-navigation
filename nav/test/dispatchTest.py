@@ -162,9 +162,9 @@ class DispatchTest(unittest.TestCase):
  ###todo             
     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
         self.setParm('op','adjust')
-        self.setParm('observation','91d12')        
+        self.setParm('observation','45d12')        
         actualResult = nav.adjust(self.inputDictionary)
-        expectedResult = { 'observation': '91d12',                  
+        expectedResult = { 'observation': '45d12',                  
                            'op': 'adjust',
                            'error': 'observation is in valid'}       
         self.assertEquals(expectedResult, actualResult)
