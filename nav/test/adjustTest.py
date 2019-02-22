@@ -144,7 +144,8 @@ class adjustTest(unittest.TestCase):
         self.setParm('temperature','72')
         self.setParm('pressure','1010')
         self.setParm('horizon','natural')
-        values = self.string2dict(self.microservice())
+        actualResult = nav.adjust(self.inputDictionary)
+        
         expectedResult = {'altitude':'13d42.3', 
                           'observation': '13d51.6', 
                           'height': '33', 
@@ -152,7 +153,7 @@ class adjustTest(unittest.TestCase):
                           'horizon': 'natural', 
                           'op': 'adjust',
                           'temperature': '72'}
-        actualResult = nav.adjust(values)
+        
         self.assertEquals(expectedResult, actualResult)
     
     
