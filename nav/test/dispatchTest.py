@@ -76,7 +76,7 @@ class DispatchTest(unittest.TestCase):
     #                        -- return {'error':'dictionary is missing'}
     # Happy path
 
-    def test100_010ShouldReturnCorrectDict(self):
+    def test100_010ShouldReturnCorrectAltitude(self):
         self.setParm('op','adjust')
         self.setParm('observation','13d51.6')
         self.setParm('height','33')
@@ -125,9 +125,8 @@ class DispatchTest(unittest.TestCase):
 #  
 #     # Sad path
     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary.has_key("error"), True)
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
                  
     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
         self.setParm('op','adjust')
