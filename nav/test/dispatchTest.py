@@ -168,7 +168,7 @@ class DispatchTest(unittest.TestCase):
         #end of obervation
     def test100_960ShouldReturnValuesWithErrorWhenHeightNotNumerical(self):
         self.setParm('op','adjust')
-        self.setParm('observation','45d12')
+        self.setParm('observation','4512')
         self.setParm('height','-4')
         result = self.microservice()
         resultDictionary = self.string2dict(result)
