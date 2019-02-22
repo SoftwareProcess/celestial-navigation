@@ -4,7 +4,7 @@ from urllib import urlencode
 import json
 
 import nav.dispatch as nav
-from nav import adjust
+import nav.adjust as adjust
 
 class DispatchTest(unittest.TestCase):
     
@@ -164,7 +164,7 @@ class DispatchTest(unittest.TestCase):
     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')        
-        actualResult = adjust(self.inputDictionary)
+        actualResult = adjust.adjust(self.inputDictionary)
         expectedResult = { 'observation': '45d12',                  
                            'op': 'adjust',
                            'error': 'observation is in valid'}       
