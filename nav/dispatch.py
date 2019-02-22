@@ -42,14 +42,16 @@ def dispatch(values=None):
     if (not(values['temperature'].isint())):
         values['error'] = 'temperature is not an integer'    
         return values
-    if (int(values['temperature']) > 120):
+    if (int(values['temperature']) > 120 or int(values['temperature']) < -20):
         values['error'] = 'temperature is out of bound'
         return values
     
     if (not(values['pressure'].isint())):
         values['error'] = 'pressure is not an integer'    
         return values
-    
+    if (int(values['pressure']) > 1101 ):
+        values['error'] = 'temperature is out of bound'
+        return values
     
     
 
