@@ -86,16 +86,15 @@ class DispatchTest(unittest.TestCase):
         result = nav.dispatch(self.inputDictionary)
         self.assertTrue(result['altitude']=='13d42.3', True)
     
-#     def test100_020ShouldReturnCorrectHeightWhenMissing(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','13d51.6')
-#         self.setParm('temperature','72')
-#         self.setParm('pressure','1010')
-#         self.setParm('horizon','natural')
-#         result = self.microservice() 
-#         resultDictionary = self.string2dict(result)
-#         self.assertEquals(resultDictionary['height'], '0')
-#     
+    def test100_020ShouldReturnCorrectHeightWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('temperature','72')
+        self.setParm('pressure','1010')
+        self.setParm('horizon','natural')
+        result = nav.dispatch(self.inputDictionary) 
+        self.assertEquals(resultDictionary['height'], '0')
+     
 #     def test100_030ShouldReturnCorrectTemperatureWhenMissing(self):
 #         self.setParm('op','adjust')
 #         self.setParm('observation','13d51.6')
