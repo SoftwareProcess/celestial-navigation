@@ -3,7 +3,7 @@ import nav.adjust as nav
 from urllib import urlencode
 import httplib
 import json
-from cmath import sqrt
+from math import sqrt
 
 class adjustTest(unittest.TestCase):
 
