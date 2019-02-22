@@ -15,16 +15,16 @@ def dispatch(values=None):
     if (values.has_key('altitude')):
         values['error'] = 'altitude already exist'
         return values
-    if (not(values.has_key('observation'))):
-        values['error'] = 'observation is missing'
-        return values
-    if ('d' not in values['observation']):
-        values['error'] = 'observation does not contain d'
-        return values
-    x, y = values['observation'].split('d')
-    if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
-        values['error'] = 'observation is invalid'
-        return values
+#     if (not(values.has_key('observation'))):
+#         values['error'] = 'observation is missing'
+#         return values
+#     if ('d' not in values['observation']):
+#         values['error'] = 'observation does not contain d'
+#         return values
+#     x, y = values['observation'].split('d')
+#     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
+#         values['error'] = 'observation is invalid'
+#         return values
     
     
     if (not(values.has_key('height'))):
