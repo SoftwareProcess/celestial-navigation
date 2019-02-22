@@ -15,44 +15,44 @@ def dispatch(values=None):
     if (values.has_key('altitude')):
         values['error'] = 'altitude already exist'
         return values
-#     if (not(values.has_key('observation'))):
-#         values['error'] = 'observation is missing'
-#         return values
-#     if ('d' not in values['observation']):
-#         values['error'] = 'observation does not contain d'
-#         return values
-#     x, y = values['observation'].split('d')
-#     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
-#         values['error'] = 'observation is invalid'
-#         return values
+    if (not(values.has_key('observation'))):
+        values['error'] = 'observation is missing'
+        return values
+    if ('d' not in values['observation']):
+        values['error'] = 'observation does not contain d'
+        return values
+    x, y = values['observation'].split('d')
+    if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
+        values['error'] = 'observation is invalid'
+        return values
     
     
-    if (not(values.has_key('height'))):
-        values['height'] = '0' 
+#     if (not(values.has_key('height'))):
+#         values['height'] = '0' 
 #     if (not(isint(values['height']))):
 #         values['error'] = 'height is not numeric'    
 #         return values 
     if (int(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values
-    
-    if (not(values.has_key('temperature'))):
-        values['temperature'] = '72'
+#     
+#     if (not(values.has_key('temperature'))):
+#         values['temperature'] = '72'
 #     if (not(isint(values['temperature']))):
 #         values['error'] = 'temperature is not an integer'    
 #         return values
-    if (int(values['temperature']) > 120 or int(values['temperature']) < -20):
-        values['error'] = 'temperature is out of bound'
-        return values
-    
-    if (not(values.has_key('pressure'))):
-        values['pressure'] = '1010'
+#     if (int(values['temperature']) > 120 or int(values['temperature']) < -20):
+#         values['error'] = 'temperature is out of bound'
+#         return values
+#     
+#     if (not(values.has_key('pressure'))):
+#         values['pressure'] = '1010'
 #     if (not(isint(values['pressure']))):
 #         values['error'] = 'pressure is not an integer'    
 #         return values
-    if (int(values['pressure']) > 1100 or int(values['pressure']) < 100):
-        values['error'] = 'pressure is out of bound'
-        return values
+#     if (int(values['pressure']) > 1100 or int(values['pressure']) < 100):
+#         values['error'] = 'pressure is out of bound'
+#         return values
     
     
 
@@ -71,16 +71,16 @@ def dispatch(values=None):
         return values
 
 
-    def isint(arg):
-        try:
-            int(arg)
-            return True
-        except ValueError:
-            return False
-        
-    def isfloat(arg):
-        try:
-            float(arg)
-            return True
-        except ValueError:
-            return False
+#     def isint(arg):
+#         try:
+#             int(arg)
+#             return True
+#         except ValueError:
+#             return False
+#         
+#     def isfloat(arg):
+#         try:
+#             float(arg)
+#             return True
+#         except ValueError:
+#             return False
