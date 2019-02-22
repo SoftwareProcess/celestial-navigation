@@ -120,7 +120,7 @@ class DispatchTest(unittest.TestCase):
         self.setParm('temperature','72')
         self.setParm('pressure','1010')
         result = nav.dispatch(self.inputDictionary)
-        self.assertEquals(result['natural'], 'horizon')
+        self.assertEquals(result['horizon'], 'natrual')
 #         
 #  
 #     # Sad path
