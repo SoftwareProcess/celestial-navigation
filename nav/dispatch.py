@@ -53,7 +53,7 @@ def dispatch(values=None):
     if (not(isint(values['pressure']))):
         values['error'] = 'pressure is not an integer'    
         return values
-    if (int(values['pressure']) > 1100 ):
+    if (int(values['pressure']) > 1100 or int(values['pressure']) < 100):
         values['error'] = 'pressure is out of bound'
         return values
     
