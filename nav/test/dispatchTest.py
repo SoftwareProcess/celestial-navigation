@@ -112,16 +112,15 @@ class DispatchTest(unittest.TestCase):
         self.setParm('horizon','natural')
         result = nav.dispatch(self.inputDictionary)
         self.assertEquals(result['pressure'], '1010')
-#     
-#     def test100_050ShouldReturnCorrectHorizonWhenMissing(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','13d51.6')
-#         self.setParm('height','33')
-#         self.setParm('temperature','72')
-#         self.setParm('pressure','1010')
-#         result = self.microservice() 
-#         resultDictionary = self.string2dict(result)
-#         self.assertEquals(resultDictionary['natural'], 'horizon')
+     
+    def test100_050ShouldReturnCorrectHorizonWhenMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('height','33')
+        self.setParm('temperature','72')
+        self.setParm('pressure','1010')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertEquals(result['natural'], 'horizon')
 #         
 #  
 #     # Sad path
