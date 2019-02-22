@@ -32,25 +32,25 @@ def dispatch(values=None):
     
     if (not(values.has_key('height'))):
         values['height'] = '0' 
-    if (not(values['height'].isint()) and not(values['height'].isfloat())):
-        values['error'] = 'height is not numeric'    
-        return values 
+#     if (not(values['height'].isint()) and not(values['height'].isfloat())):
+#         values['error'] = 'height is not numeric'    
+#         return values 
     if (float(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values
     
     if (not(values.has_key('temperature'))):
         values['temperature'] = '72'
-    if (not(values['temperature'].isint())):
-        values['error'] = 'temperature is not an integer'    
-        return values
+#     if (not(values['temperature'].isint())):
+#         values['error'] = 'temperature is not an integer'    
+#         return values
     if (int(values['temperature']) > 120 or int(values['temperature']) < -20):
         values['error'] = 'temperature is out of bound'
         return values
     
-    if (not(values['pressure'].isint())):
-        values['error'] = 'pressure is not an integer'    
-        return values
+#     if (not(values['pressure'].isint())):
+#         values['error'] = 'pressure is not an integer'    
+#         return values
     if (int(values['pressure']) > 1100 ):
         values['error'] = 'pressure is out of bound'
         return values
