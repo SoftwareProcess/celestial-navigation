@@ -195,7 +195,7 @@ class DispatchTest(unittest.TestCase):
         self.setParm('height','-1')
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-        self.assertFalse(resultDictionary.has_key("error"))
+        self.assertTrue(resultDictionary.has_key("error"), True)
             
 #     def test100_960ShouldReturnValuesWithErrorWhenTemperatureNotInteger(self):
 #         self.setParm('op','adjust')
