@@ -54,10 +54,13 @@ class DispatchTest(unittest.TestCase):
     #   Happy path analysis:
     #        values:      mandatory
     #                     dictionary
-    #                     Operations:   {'op':'adjust'}
-    #                                   {'op':'predict'}
-    #                                   {'op':'correct'}
-    #                                   {'op':'locate'}
+    #                     return correct altitude
+    #                     return correct height if missing
+    #                     return correct temperature if missing
+    #                     return correct pressure if missing
+    #                     return correct horizon if missing
+
+    #                     
     #   Sad path analysis:
     #        values:
     #                     no op specified             values={}
@@ -72,6 +75,27 @@ class DispatchTest(unittest.TestCase):
     #                        -- return {'error':'op is not a legal operation'}
     #                     missing dictionary            dispatch()
     #                        -- return {'error':'dictionary is missing'}
+    #     
+    #                         return error when op is blank
+    #                     return error when dictionary is invalid
+    #                     return error when no dictionary input
+    #                     return error when altitude present in input
+    #                     return error when observation missing
+    #                     return error when observation x out of upper bound
+    #                     return error when observation x out of lower bound
+    #                     return error when observation y out of upper bound
+    #                     return error when observation y out of lower bound
+    #                     return error when observation d missing
+    #                     return error when height is not numerical
+    #                     return error when height out of lower bound
+    #                     return error when temperature is not integer
+    #                     return error when temperature out of upper bound
+    #                     return error when temperature out of lower bound
+    #                     return error when pressure is not integer
+    #                     return error when pressure out of upper bound
+    #                     return error when pressure out of lower bound
+    #                     return error when horizon is invalid 
+    #                     
     # Happy path
 
     def test100_010ShouldReturnCorrectAltitude(self):
