@@ -1,6 +1,19 @@
 import adjust
 def dispatch(values=None):
 
+    def isint(arg):
+        try:
+            int(arg)
+            return True
+        except ValueError:
+            return False
+         
+    def isfloat(arg):
+        try:
+            float(arg)
+            return True
+        except ValueError:
+            return False
     #Validate parm
     if(values == None):
         return {'error': 'parameter is missing'}
