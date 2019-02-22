@@ -48,6 +48,8 @@ def dispatch(values=None):
         values['error'] = 'temperature is out of bound'
         return values
     
+    if (not(values.has_key('pressure'))):
+        values['pressure'] = '1010'
     if (not(isint(values['pressure']))):
         values['error'] = 'pressure is not an integer'    
         return values
