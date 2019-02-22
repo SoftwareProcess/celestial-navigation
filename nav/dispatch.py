@@ -32,7 +32,7 @@ def dispatch(values=None):
     
     if (not(values.has_key('height'))):
         values['height'] = '0' 
-    if (values['height'].isdigit()):
+    if (not(values['height'].isdigit())):
         values['error'] = 'height is not numeric'    
         return values 
     if (float(values['height']) < 0):
