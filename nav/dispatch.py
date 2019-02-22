@@ -70,7 +70,7 @@ def dispatch(values=None):
     
     if (not(values.has_key('horizon'))):
         values['horizon'] = 'natural' 
-    if (values['horizon'] == 'natural' or values['horizon'] == 'artificial'):
+    if (not(values['horizon'] == 'natural') or not(values['horizon'] == 'artificial')):
         values['error'] = 'horizon is invalid'
         return values
     
