@@ -192,7 +192,7 @@ class DispatchTest(unittest.TestCase):
     def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
-#         self.setParm('height','-1')
+        self.setParm('height','-1')
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertFalse(resultDictionary.has_key("error"))
