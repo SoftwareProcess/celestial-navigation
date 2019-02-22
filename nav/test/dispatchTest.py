@@ -124,15 +124,17 @@ class DispatchTest(unittest.TestCase):
 #         
 #  
 #     # Sad path
-#     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                 
-#     def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
-#         values = {'observation': '5d5', 'op': 'adjust', 'error': 'invalid', 'height': '30', 'temperature': '72', 'pressure': '1000'}         
-#         result = nav.dispatch(values)
-#         self.assertFalse(result.has_key("error"), True)    
+    def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        self.assertTrue(resultDictionary.has_key("error"), True)
+                 
+    def test100_911ShouldReturnValuesWithErrorWhenContainErrorKey(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','13d51.6')
+        self.setParm('error','unknown')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertFalse(result.has_key("error"))    
 #         
 #     def test100_912ShouldReturnValuesWithErrorWhenParameterIsNotALegalOperation(self):
 #         self.setParm('op','unknown')        
