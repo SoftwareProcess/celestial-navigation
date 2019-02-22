@@ -149,17 +149,16 @@ class DispatchTest(unittest.TestCase):
     def test100_920ShouldReturnValuesWithErrorWhenNotDictionary(self):            
         result = nav.dispatch(42)
         self.assertTrue(result.has_key("error"), True)
-#                
-#     def test100_921ShouldReturnValuesWithErrorWhenDictionaryMissing(self):         
-#         result = nav.dispatch()
-#         self.assertTrue(result.has_key("error"), True)
-#             
-#     def test100_930ShouldReturnValuesWithErrorWhenAltitudePresent(self):
-#         self.setParm('op','adjust')
-#         self.setParm('altitude','a')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
+                
+    def test100_921ShouldReturnValuesWithErrorWhenDictionaryMissing(self):         
+        result = nav.dispatch()
+        self.assertTrue(result.has_key("error"), True)
+             
+    def test100_930ShouldReturnValuesWithErrorWhenAltitudePresent(self):
+        self.setParm('op','adjust')
+        self.setParm('altitude','a')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
 #             
 #     def test100_940ShouldReturnValuesWithErrorWhenObservationMissing(self):
 #         self.setParm('op','adjust')        
