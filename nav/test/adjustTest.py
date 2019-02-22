@@ -6,8 +6,6 @@ import json
 from math import sqrt
 
 class adjustTest(unittest.TestCase):
-
-
     def setUp(self):
         self.inputDictionary = {}
         self.errorKey = "error"
@@ -151,8 +149,7 @@ class adjustTest(unittest.TestCase):
                           'pressure': '1010', 
                           'horizon': 'natural', 
                           'op': 'adjust',
-                          'temperature': '72'}
-        
+                          'temperature': '72'}      
         self.assertEquals(expectedResult, actualResult)
     
     

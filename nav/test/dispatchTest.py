@@ -2,9 +2,7 @@ import unittest
 import httplib
 from urllib import urlencode
 import json
-
 import nav.dispatch as nav
-
 
 class DispatchTest(unittest.TestCase):
     
