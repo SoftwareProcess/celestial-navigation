@@ -229,7 +229,7 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
            
-    def test100_970ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
+    def test100_971ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
         self.setParm('pressure','1111')
