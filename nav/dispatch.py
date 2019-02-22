@@ -27,11 +27,11 @@ def dispatch(values=None):
         return values
     
     
-#     if (not(values.has_key('height'))):
-#         values['height'] = '0' 
-#     if (not(isint(values['height']))):
-#         values['error'] = 'height is not numeric'    
-#         return values 
+    if (not(values.has_key('height'))):
+        values['height'] = '0' 
+    if (not(isint(values['height']))):
+        values['error'] = 'height is not numeric'    
+        return values 
     if (int(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values
