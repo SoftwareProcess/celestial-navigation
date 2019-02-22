@@ -216,7 +216,7 @@ class DispatchTest(unittest.TestCase):
     def test100_962ShouldReturnValuesWithErrorWhenTemperatureOutOfLowerBound(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d12')
-        self.setParm('temperature','-12')        
+        self.setParm('temperature','-30')        
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
