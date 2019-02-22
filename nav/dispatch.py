@@ -39,6 +39,8 @@ def dispatch(values=None):
         values['error'] = 'height is invalid'
         return values
     
+    if (not(values.has_key('temperature'))):
+        values['temperature'] = '72'
     if (not(values['temperature'].isint())):
         values['error'] = 'temperature is not an integer'    
         return values
