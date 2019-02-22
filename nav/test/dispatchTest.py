@@ -177,102 +177,90 @@ class DispatchTest(unittest.TestCase):
         result = nav.dispatch(self.inputDictionary)
         self.assertTrue(result.has_key("error"), True)
               
-#     def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','45d12')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                
-#     def test100_944ShouldReturnValuesWithErrorWhenObservationYOutOfLowerBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','45d-1')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                  
-#     def test100_945ShouldReturnValuesWithErrorWhenObservationDMissing(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','31')           
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-# #########################################################################################      
-#    
-#     def test100_950ShouldReturnValuesWithErrorWhenHeightNotNumerical(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('height','a')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                
-#     def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('height','-4')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#              
-#     def test100_960ShouldReturnValuesWithErrorWhenTemperatureNotInteger(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('height','0')
-#         self.setParm('temperature','140')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#          
-#     def test100_961ShouldReturnValuesWithErrorWhenTemperatureOutOfUpperBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('temperature','123')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                 
-#     def test100_962ShouldReturnValuesWithErrorWhenTemperatureOutOfLowerBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('temperature','-30')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#                
-#     def test100_970ShouldReturnValuesWithErrorWhenPressureNotInteger(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','33d12.5')
-#         self.setParm('pressure','a')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-#               
-#     def test100_971ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation', '33d12.5')
-#         self.setParm('pressure','1111')
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True) 
-#    
-#     def test100_982ShouldReturnValuesWithErrorWhenPressureOutOfLowerBound(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','45d12')
-#         self.setParm('pressure','99')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True) 
-#        
-#     def test100_990ShouldReturnValuesWithErrorWhenHorizonInvalid(self):
-#         self.setParm('op','adjust')
-#         self.setParm('observation','45d12')
-#         self.setParm('horizon','invalid')        
-#         result = self.microservice()
-#         resultDictionary = self.string2dict(result)
-#         self.assertTrue(resultDictionary.has_key("error"), True)
-# #         
-# #     
-# #           
-# #      
-# #      
+    def test100_943ShouldReturnValuesWithErrorWhenObservationYOutOfUpperBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d12')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+                
+    def test100_944ShouldReturnValuesWithErrorWhenObservationYOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d-1')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+                  
+    def test100_945ShouldReturnValuesWithErrorWhenObservationDMissing(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','31')           
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+     
+    
+    def test100_950ShouldReturnValuesWithErrorWhenHeightNotNumerical(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('height','a')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+                
+    def test100_951ShouldReturnValuesWithErrorWhenHeightOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('height','-4')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+              
+    def test100_960ShouldReturnValuesWithErrorWhenTemperatureNotInteger(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('height','0')
+        self.setParm('temperature','140')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+          
+    def test100_961ShouldReturnValuesWithErrorWhenTemperatureOutOfUpperBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('temperature','123')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+                 
+    def test100_962ShouldReturnValuesWithErrorWhenTemperatureOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('temperature','-30')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+                
+    def test100_970ShouldReturnValuesWithErrorWhenPressureNotInteger(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','33d12.5')
+        self.setParm('pressure','a')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+               
+    def test100_971ShouldReturnValuesWithErrorWhenPressureOutOfUpperBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation', '33d12.5')
+        self.setParm('pressure','1111')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True) 
+    
+    def test100_982ShouldReturnValuesWithErrorWhenPressureOutOfLowerBound(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d12')
+        self.setParm('pressure','99')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True) 
+        
+    def test100_990ShouldReturnValuesWithErrorWhenHorizonInvalid(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','45d12')
+        self.setParm('horizon','invalid')        
+        result = nav.dispatch(self.inputDictionary)
+        self.assertTrue(result.has_key("error"), True)
+         
+     
+           
+      
+      
