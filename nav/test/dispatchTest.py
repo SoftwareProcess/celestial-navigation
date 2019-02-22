@@ -84,8 +84,7 @@ class DispatchTest(unittest.TestCase):
         self.setParm('pressure','1010')
         self.setParm('horizon','natural')
         result = nav.dispatch(self.inputDictionary)
-        resultDictionary = self.string2dict(result)
-        self.assertTrue(resultDictionary['altitude']=='13d42.3', True)
+        self.assertTrue(result['altitude']=='13d42.3', True)
     
 #     def test100_020ShouldReturnCorrectHeightWhenMissing(self):
 #         self.setParm('op','adjust')
