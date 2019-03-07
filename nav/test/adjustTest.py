@@ -175,7 +175,7 @@ class adjustTest(unittest.TestCase):
     def test500_040NoOpSpecifiedTest(self):
         self.setParm('op','')
         self.setParm('observation','42d0.0')
-        actualResult = nav.adjust(self.inputDictionary)         
+        actualResult = nav.dispatch(self.inputDictionary)         
         self.assertEquals(actualResult['error'], 'no op  is specified')
         
     
