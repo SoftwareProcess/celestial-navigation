@@ -73,7 +73,7 @@ def adjust(values = None):
     d, m =  values['observation'].split('d')
     degrees = float(d) + float(m) / 60
     radians = float(degrees * pi / 180)
-    height = int(values['height'])
+    height = int(float(values['height']))
     temperature = int(values['temperature'])
     pressure = int(values['pressure'])
  
