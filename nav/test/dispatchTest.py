@@ -108,41 +108,41 @@ class DispatchTest(unittest.TestCase):
         result = nav.dispatch(self.inputDictionary)
         self.assertTrue(result['altitude']=='13d42.3', True)
     
-    def test100_020ShouldReturnCorrectHeightWhenMissing(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
-        self.setParm('temperature','72')
-        self.setParm('pressure','1010')
-        self.setParm('horizon','natural')
-        result = nav.dispatch(self.inputDictionary) 
-        self.assertEquals(result['height'], '0')
-     
-    def test100_030ShouldReturnCorrectTemperatureWhenMissing(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
-        self.setParm('height','33')
-        self.setParm('pressure','1010')
-        self.setParm('horizon','natural')
-        result = nav.dispatch(self.inputDictionary)
-        self.assertEquals(result['temperature'], '72')
-     
-    def test100_040ShouldReturnCorrectPressureWhenMissing(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
-        self.setParm('height','33')
-        self.setParm('temperature','72')
-        self.setParm('horizon','natural')
-        result = nav.dispatch(self.inputDictionary)
-        self.assertEquals(result['pressure'], '1010')
-     
-    def test100_050ShouldReturnCorrectHorizonWhenMissing(self):
-        self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
-        self.setParm('height','33')
-        self.setParm('temperature','72')
-        self.setParm('pressure','1010')
-        result = nav.dispatch(self.inputDictionary)
-        self.assertEquals(result['horizon'], 'natural')
+#     def test100_020ShouldReturnCorrectHeightWhenMissing(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('temperature','72')
+#         self.setParm('pressure','1010')
+#         self.setParm('horizon','natural')
+#         result = nav.dispatch(self.inputDictionary) 
+#         self.assertEquals(result['height'], '0')
+#      
+#     def test100_030ShouldReturnCorrectTemperatureWhenMissing(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('pressure','1010')
+#         self.setParm('horizon','natural')
+#         result = nav.dispatch(self.inputDictionary)
+#         self.assertEquals(result['temperature'], '72')
+#      
+#     def test100_040ShouldReturnCorrectPressureWhenMissing(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('temperature','72')
+#         self.setParm('horizon','natural')
+#         result = nav.dispatch(self.inputDictionary)
+#         self.assertEquals(result['pressure'], '1010')
+#      
+#     def test100_050ShouldReturnCorrectHorizonWhenMissing(self):
+#         self.setParm('op','adjust')
+#         self.setParm('observation','13d51.6')
+#         self.setParm('height','33')
+#         self.setParm('temperature','72')
+#         self.setParm('pressure','1010')
+#         result = nav.dispatch(self.inputDictionary)
+#         self.assertEquals(result['horizon'], 'natural')
 #         
 #  
 #     # Sad path
