@@ -135,7 +135,7 @@ class adjustTest(unittest.TestCase):
 #         actualResult = nav.adjust(values)
 #         self.assertEquals(expectedResult, actualResult)  
     
-    def test500_070GeneralTest(self):
+    def test500_010GeneralTest(self):
         self.setParm('op','adjust')
         self.setParm('observation','45d15.2')
         self.setParm('height','6')
@@ -152,7 +152,7 @@ class adjustTest(unittest.TestCase):
                           'temperature': '71'}      
         self.assertEquals(expectedResult, actualResult)
         
-    def test500_080GeneralTest(self):
+    def test500_020GeneralTest(self):
         self.setParm('op','adjust')
         self.setParm('observation','42d0.0')
         actualResult = nav.adjust(self.inputDictionary)   
@@ -161,7 +161,7 @@ class adjustTest(unittest.TestCase):
                           'op': 'adjust'}      
         self.assertEquals(expectedResult, actualResult)
     
-    def test500_090GeneralTest(self):
+    def test500_030GeneralTest(self):
         self.setParm('op','adjust')
         self.setParm('observation','42d0.0')
         self.setParm('extraKey','ignore')
@@ -171,4 +171,6 @@ class adjustTest(unittest.TestCase):
                           'op': 'adjust',
                           'extraKey': 'ignore'}      
         self.assertEquals(expectedResult, actualResult)
+        
+    
     

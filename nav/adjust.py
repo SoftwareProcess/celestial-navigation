@@ -13,7 +13,7 @@ def adjust(values = None):
             return True
         except ValueError:
             return False
-    #Validate parm
+    #Validate parameters
     if(values == None):
         return {'error': 'parameter is missing'}
     if(not(isinstance(values,dict))):
