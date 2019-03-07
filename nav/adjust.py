@@ -76,8 +76,11 @@ def adjust(values = None):
     height = int(float(values['height']))
     temperature = int(values['temperature'])
     pressure = int(values['pressure'])
- 
-    dip = -0.97 * sqrt(height) / 60   
+    
+    if (values['horizon'] == 'natural'):
+        dip = -0.97 * sqrt(height) / 60 
+    else:
+        dip = 0  
     refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / tan(radians)
     altitude = degrees + dip + refraction
     x = int(altitude)
