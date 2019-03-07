@@ -154,10 +154,10 @@ class adjustTest(unittest.TestCase):
         
     def test500_080GeneralTest(self):
         self.setParm('op','adjust')
-        self.setParm('observation','45d15.2')
+        self.setParm('observation','42d0.0')
         actualResult = nav.adjust(self.inputDictionary)   
-        expectedResult = {'altitude':'45d11.9', 
-                          'observation': '45d15.2', 
+        expectedResult = {'altitude':'41d59.0', 
+                          'observation': '42d0.0', 
                           'op': 'adjust'}      
         self.assertEquals(expectedResult, actualResult)
     
