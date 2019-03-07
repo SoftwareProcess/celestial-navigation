@@ -41,46 +41,49 @@ def adjust(values = None):
         values['error'] = 'observation is invalid'
         return values  
     if (not(values.has_key('height'))):
-        values['height'] = '0' 
-    if (not(isint(values['height'])) or not(isfloat(values['height']))):
+        height = 0 
+    elif (not(isint(values['height'])) or not(isfloat(values['height']))):
         values['error'] = 'height is not numeric'    
         return values 
-    if (int(values['height']) < 0):
+    elif (int(values['height']) < 0):
         values['error'] = 'height is invalid'
         return values     
     if (not(values.has_key('temperature'))):
-        values['temperature'] = '72'
-    if (not(isint(values['temperature']))):
+        temperature = 72
+    elif (not(isint(values['temperature']))):
         values['error'] = 'temperature is not an integer'    
         return values
-    if (int(values['temperature']) > 120 or int(values['temperature']) < -20):
+    elif (int(values['temperature']) > 120 or int(values['temperature']) < -20):
         values['error'] = 'temperature is out of bound'
         return values  
     if (not(values.has_key('pressure'))):
-        values['pressure'] = '1010'
-    if (not(isint(values['pressure']))):
+        pressure = 1010
+    elif (not(isint(values['pressure']))):
         values['error'] = 'pressure is not an integer'    
         return values
-    if (int(values['pressure']) > 1100 or int(values['pressure']) < 100):
+    elif (int(values['pressure']) > 1100 or int(values['pressure']) < 100):
         values['error'] = 'pressure is out of bound'
         return values  
     if (not(values.has_key('horizon'))):
-        values['horizon'] = 'natural' 
-    if (not(values['horizon'] == 'natural') and not(values['horizon'] == 'artificial')):
+        horizon = 'natural' 
+    elif (not(values['horizon'] == 'natural') and not(values['horizon'] == 'artificial')):
         values['error'] = 'horizon is invalid'
         return values  
      
     d, m =  values['observation'].split('d')
     degrees = float(d) + float(m) / 60
     radians = float(degrees * pi / 180)
-    height = int(float(values['height']))
-    temperature = int(values['temperature'])
-    pressure = int(values['pressure'])
-    
-    if (values['horizon'] == 'natural'):
+    if (values.has_key('height')):
+        height = int(float(values['height']))
+    if (values.has_key('temperature')):    
+        temperature = int(values['temperature'])
+    if (values.has_key('pressure')):
+        pressure = int(values['pressure'])
+    if (values.has_key('horizon') and values['horizon'] == 'artificial'):
+        dip = 0 
+    else:  
         dip = -0.97 * sqrt(height) / 60 
-    else:
-        dip = 0  
+        
     refraction = (-0.00452 * pressure) / (273 + (temperature-32) * 5 / 9) / tan(radians)
     altitude = degrees + dip + refraction
     x = int(altitude)
