@@ -15,9 +15,9 @@ def adjust(values = None):
             return False
     #Validate parameters
   
-    if (values.has_key('altitude')):
-        values['error'] = 'altitude already exist'
-        return values   
+#     if (values.has_key('altitude')):
+#         values['error'] = 'altitude already exist'
+#         return values   
     if (not(values.has_key('observation'))):
         values['error'] = 'observation is missing'
         return values

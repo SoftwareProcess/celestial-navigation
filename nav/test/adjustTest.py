@@ -172,17 +172,26 @@ class adjustTest(unittest.TestCase):
                           'op': 'adjust',
                           'extraKey': 'ignore'}      
         self.assertEquals(expectedResult, actualResult)
-        
+     
+    def test500_040ReplaceAltitudeTest(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','42d0.0')
+        self.setParm('altitude','00d0.0')
+        actualResult = nav.adjust(self.inputDictionary)   
+        expectedResult = {'altitude':'41d59.0', 
+                          'observation': '42d0.0', 
+                          'op': 'adjust'}      
+        self.assertEquals(expectedResult, actualResult)    
         
         
     #sad path tests    
-    def test500_040NoOpSpecifiedTest(self):
+    def test900_040NoOpSpecifiedTest(self):
         self.setParm('op','')
         self.setParm('observation','42d0.0')
         actualResult = dispatch.dispatch(self.inputDictionary)         
         self.assertEquals(actualResult['error'], 'no op  is specified')
     
-    def test500_050NoOpSpecifiedTest(self):
+    def test900_050NoOpSpecifiedTest(self):
         self.setParm('op','')
         self.setParm('observation','42d0.0')
         actualResult = dispatch.dispatch(self.inputDictionary)         
