@@ -30,7 +30,7 @@ def adjust(values = None):
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
         values['error'] = 'observation is invalid'
         return values 
-    y = float(y).zfill(1) 
+    y = str(float(y)).zfill(1) 
     values['observation'] = x + 'd' + y
     if (not(values.has_key('height'))):
         height = 0 
