@@ -137,19 +137,19 @@ class adjustTest(unittest.TestCase):
     
     def test500_070Roundaltitude(self):
         self.setParm('op','adjust')
-        self.setParm('observation','13d51.6')
-        self.setParm('height','33')
-        self.setParm('temperature','72')
-        self.setParm('pressure','1010')
-        self.setParm('horizon','natural')
+        self.setParm('observation','30d1.5')
+        self.setParm('height','19.0')
+        self.setParm('temperature','85')
+        self.setParm('pressure','1000')
+        self.setParm('horizon','artificial')
         actualResult = nav.adjust(self.inputDictionary)   
-        expectedResult = {'altitude':'13d42.3', 
-                          'observation': '13d51.6', 
-                          'height': '33', 
-                          'pressure': '1010', 
-                          'horizon': 'natural', 
+        expectedResult = {'altitude':'29d59.9', 
+                          'observation': '30d1.5', 
+                          'height': '19.0', 
+                          'pressure': '1000', 
+                          'horizon': 'artificial', 
                           'op': 'adjust',
-                          'temperature': '72'}      
+                          'temperature': '85'}      
         self.assertEquals(expectedResult, actualResult)
     
     
