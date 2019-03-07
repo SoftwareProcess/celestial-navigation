@@ -27,10 +27,11 @@ def adjust(values = None):
     x, y = values['observation'].split('d')
     x = x.lstrip('0')
     y = y.lstrip('0')
+    y = y.zfill(1)
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
         values['error'] = 'observation is invalid'
         return values 
-    y = y.zfill(1) 
+     
     values['observation'] = x + 'd' + y
     if (not(values.has_key('height'))):
         height = 0 
