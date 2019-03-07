@@ -1,5 +1,6 @@
 import unittest
 import nav.adjust as nav
+import nav.dispatch as dispatch
 from urllib import urlencode
 import httplib
 import json
@@ -175,7 +176,7 @@ class adjustTest(unittest.TestCase):
     def test500_040NoOpSpecifiedTest(self):
         self.setParm('op','')
         self.setParm('observation','42d0.0')
-        actualResult = nav.dispatch(self.inputDictionary)         
+        actualResult = dispatch.dispatch(self.inputDictionary)         
         self.assertEquals(actualResult['error'], 'no op  is specified')
         
     
