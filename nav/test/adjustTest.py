@@ -161,4 +161,14 @@ class adjustTest(unittest.TestCase):
                           'op': 'adjust'}      
         self.assertEquals(expectedResult, actualResult)
     
+    def test500_090GeneralTest(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','42d0.0')
+        self.setParm('extraKey','ignore')
+        actualResult = nav.adjust(self.inputDictionary)   
+        expectedResult = {'altitude':'41d59.0', 
+                          'observation': '42d0.0', 
+                          'op': 'adjust',
+                          'extraKey': 'ignore'}      
+        self.assertEquals(expectedResult, actualResult)
     
