@@ -303,8 +303,27 @@ class DispatchTest(unittest.TestCase):
         self.setParm('time','03:15:42')
         result = nav.dispatch(self.inputDictionary)
         self.assertEquals(result['op'], 'predict')
-        self.assertEquals(result['body'], 'Aldebaran')
+        self.assertEquals(result['body'], 'Betelgeuse')
         self.assertEquals(result['date'], '2016-01-17')
         self.assertEquals(result['time'], '03:15:42')
         self.assertEquals(result['long'], '75d53.6')       
-        self.assertEquals(result['lat'], '7d24.3')  
+        self.assertEquals(result['lat'], '7d24.3') 
+        
+    def test800_010MissingBody(self):
+        self.setParm('op','predict')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertEquals(result['error'], 'body is missing')
+        
+    def test800_020StarNotInCatalog(self):
+        self.setParm('op','predict')
+        self.setParm('body','unknown')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertEquals(result['op'], 'predict')
+        self.assertEquals(result['body'], 'unknown')
+        self.assertEquals(result['date'], '2016-01-17')
+        self.assertEquals(result['time'], '03:15:42')
+        self.assertEquals(result['error'], 'star not in catalog')       
+       
+ 
