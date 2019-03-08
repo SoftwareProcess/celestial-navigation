@@ -1,5 +1,6 @@
 from math import sqrt, tan, pi
 import xlrd
+from datetime import datetime
 
 def predict(values = None):
     
@@ -13,4 +14,8 @@ def predict(values = None):
         if (sheet.cell_value(i, 0) == values['body']):
             result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2) + str(sheet.cell_value(i, 3))
     
-    return result
+    dt = datetime.strptime(values['date'], '%Y-%m-%d')
+    yearDiff = int(dt.year) - 2001
+    cumProgression = yearDiff * -14.31667
+    
+    return cumProgression
