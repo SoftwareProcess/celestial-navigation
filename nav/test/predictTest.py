@@ -98,9 +98,9 @@ class predictTest(unittest.TestCase):
 #         self.assertEquals(expectedResult, actualResult)
         
     def test100_040SearchAStarFromStarData(self):
-        values = self.setParm('body','Hadar')
+        self.setParm('body','Hadar')
         expectedResult = 'found'
-        actualResult = nav.predict(values)
+        actualResult = nav.predict(self.inputDictionary)
         self.assertEquals(actualResult, expectedResult)
      
            
