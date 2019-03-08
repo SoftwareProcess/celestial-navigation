@@ -4,6 +4,11 @@ from datetime import datetime
 
 def predict(values = None):
     
+    if (not(values.has_key('body'))):
+        values['error'] = 'body is missing'
+        return values
+    
+    
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
         minutes = int(x) * 60 + float(y)
