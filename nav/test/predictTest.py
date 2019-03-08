@@ -114,7 +114,7 @@ class predictTest(unittest.TestCase):
         self.setParm('date','2016-01-17')
         expectedResult = -214.75
         actualResult = nav.predict(self.inputDictionary)
-        self.assertAlmostEquals(actualResult, expectedResult)
+        self.assertAlmostEquals(actualResult, expectedResult, 4)
      
            
       
