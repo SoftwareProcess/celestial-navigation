@@ -92,15 +92,16 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(values)
 #         self.assertEquals(expectedResult, actualResult)
         
-    def test100_030ShouldReadStarDataAndOutPutNumberOfColumns(self):
-        expectedResult = 5
-        actualResult = nav.predict()
-        self.assertEquals(expectedResult, actualResult)
+#     def test100_030ShouldReadStarDataAndOutPutNumberOfColumns(self):
+#         expectedResult = 5
+#         actualResult = nav.predict()
+#         self.assertEquals(expectedResult, actualResult)
         
     def test100_040SearchAStarFromStarData(self):
         values = self.setParm('body','Hadar')
+        expectedResult = 'found'
         actualResult = nav.predict(values)
-        self.assertTrue(actualResult)
+        self.assertEquals(actualResult, expectedResult)
      
            
       
