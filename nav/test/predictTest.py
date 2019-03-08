@@ -133,11 +133,19 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertAlmostEquals(actualResult, expectedResult, 3) 
            
-    def test100_080ShouldCalculateTotalGHAAries(self):
+#     def test100_080ShouldCalculateTotalGHAAries(self):
+#         self.setParm('body','Aldebaran')
+#         self.setParm('date','2016-01-17')
+#         self.setParm('time','03:15:42')
+#         expectedResult = 9894.5
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertAlmostEquals(actualResult, expectedResult, 2) 
+        
+    def test100_090ShouldCalculateTotalGHAStar(self):
         self.setParm('body','Aldebaran')
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42')
-        expectedResult = 9894.5
+        expectedResult = 5741.6
         actualResult = nav.predict(self.inputDictionary)
-        self.assertAlmostEquals(actualResult, expectedResult, 2)  
+        self.assertAlmostEquals(actualResult, expectedResult, 2) 
       
