@@ -26,5 +26,7 @@ def predict(values = None):
     dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
     leapProgression = dailyRotation * 3
     
+    referenceDate = datetime(int(dt.year))
+    seconds = (dt - referenceDate).total_seconds()
     
-    return leapProgression
+    return seconds
