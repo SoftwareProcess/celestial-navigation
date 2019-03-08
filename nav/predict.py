@@ -26,9 +26,11 @@ def predict(values = None):
             count += 1
     dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
     leapProgression = dailyRotation * count
-    
+   
     referenceDate = datetime(int(dt.year),01,01,0,0,0)
-
     seconds = (dt - referenceDate).total_seconds()
+    rotation = (seconds / 86164.1) % 1 * 360 * 60
     
-    return seconds
+    GHAaries = 6042.6 + cumProgression + leapProgression + rotation
+    
+    return GHAaries
