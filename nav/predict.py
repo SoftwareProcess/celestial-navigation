@@ -4,7 +4,10 @@ from datetime import datetime
 
 def predict(values = None):
     
-    
+    def convertStrToMinutes(arg):
+        x, y = arg.split('d')
+        minutes = int(x) * 60 + float(y)
+        return minutes
     
     workbook = xlrd.open_workbook('C:\Users\Angus\Desktop\stardata.xlsx')
     sheet = workbook.sheet_by_index(0)
@@ -12,7 +15,10 @@ def predict(values = None):
     result = 'not found'
     for i in range(sheet.nrows):
         if (sheet.cell_value(i, 0) == values['body']):
-            result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2) + str(sheet.cell_value(i, 3))
+            SHA = sheet.cell_value(i, 1)
+            dec = sheet.cell_value(i, 2)
+    
+    
     
     dateTime = values['date'] + ' ' + values['time']
     dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
@@ -33,4 +39,7 @@ def predict(values = None):
     
     GHAaries = 6042.6 + cumProgression + leapProgression + rotation
     
-    return GHAaries
+    GHAstar = GHAaries + convertStrToMinutes(SHA)
+    GHAstar = GHAstar % 360
+    
+    return GHAstar
