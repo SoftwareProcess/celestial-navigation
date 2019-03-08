@@ -96,6 +96,11 @@ class predictTest(unittest.TestCase):
         expectedResult = 5
         actualResult = nav.predict()
         self.assertEquals(expectedResult, actualResult)
+        
+    def test100_040SearchAStarFromStarData(self):
+        values = self.setParm('body','Hadar')
+        actualResult = nav.predict(values)
+        self.assertTrue(actualResult)
      
            
       
