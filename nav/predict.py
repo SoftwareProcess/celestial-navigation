@@ -1,5 +1,6 @@
 import xlrd
 from datetime import datetime
+import os.path
 
 def predict(values = None):
     
@@ -25,8 +26,9 @@ def predict(values = None):
         minutes = round(arg % 60, 1)
         string = str(degree) + 'd' + str(minutes)
         return string
-    
-    workbook = xlrd.open_workbook('stardata.xlsx')
+    my_path = os.path.abspath(os.path.dirname(__file__))
+    path = os.path.join(my_path, "../stardata.xlsx")
+    workbook = xlrd.open_workbook(path)
     sheet = workbook.sheet_by_index(0)
     sheet.cell_value(0, 0)
     found = False
