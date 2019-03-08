@@ -105,7 +105,7 @@ class predictTest(unittest.TestCase):
         
     def test100_050OutputDataForAStar(self):
         self.setParm('body','Hadar')
-        expectedResult = '148d45.5-60d26.60.6leg of the centaur'
+        expectedResult = '148d45.5-60d26.60.6'
         actualResult = nav.predict(self.inputDictionary)
         self.assertEquals(actualResult, expectedResult)
      
