@@ -9,6 +9,12 @@ def predict(values = None):
         minutes = int(x) * 60 + float(y)
         return minutes
     
+    def convertMinutesToStr(arg):
+        degree = int(arg / 60)
+        minutes = round(arg % 60, 1)
+        string = str(degree) + 'd' + str(minutes)
+        return string
+    
     workbook = xlrd.open_workbook('C:\Users\Angus\Desktop\stardata.xlsx')
     sheet = workbook.sheet_by_index(0)
     sheet.cell_value(0, 0)
@@ -17,9 +23,8 @@ def predict(values = None):
         if (sheet.cell_value(i, 0) == values['body']):
             SHA = sheet.cell_value(i, 1)
             dec = sheet.cell_value(i, 2)
-    
-    
-    
+    values['lat'] = dec
+       
     dateTime = values['date'] + ' ' + values['time']
     dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
   
@@ -41,5 +46,6 @@ def predict(values = None):
     
     GHAstar = GHAaries + convertStrToMinutes(SHA)
     GHAstar = GHAstar % (360 * 60)
+    values['long'] = convertMinutesToStr(GHAstar)
     
     return GHAstar
