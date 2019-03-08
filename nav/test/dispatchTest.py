@@ -280,8 +280,19 @@ class DispatchTest(unittest.TestCase):
         self.setParm('horizon','invalid')        
         result = nav.dispatch(self.inputDictionary)
         self.assertTrue(result.has_key("error"), True)
-         
+
+# acceptance test for predict
      
-           
-      
+    def test200_010ShouldReturnCorrectAltitude(self):
+        self.setParm('op','predict')
+        self.setParm('body','Aldebaran')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        result = nav.dispatch(self.inputDictionary)
+        self.assertEquals(result['op']=='predict')
+        self.assertEquals(result['body']=='Aldebaran')
+        self.assertEquals(result['date']=='2016-01-17')
+        self.assertEquals(result['time']=='03:15:42')
+        self.assertEquals(result['long']=='95d41.6')       
+        self.assertEquals(result['lat']=='16d32.3') 
       
