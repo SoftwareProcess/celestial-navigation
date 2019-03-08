@@ -33,4 +33,4 @@ def predict(values = None):
     
     GHAaries = 6042.6 + cumProgression + leapProgression + rotation
     
-    return cumProgression
+    return leapProgression
