@@ -26,7 +26,7 @@ def predict(values = None):
         string = str(degree) + 'd' + str(minutes)
         return string
     
-    workbook = xlrd.open_workbook('..\stardata.xlsx')
+    workbook = xlrd.open_workbook('stardata.xlsx')
     sheet = workbook.sheet_by_index(0)
     sheet.cell_value(0, 0)
     found = False
