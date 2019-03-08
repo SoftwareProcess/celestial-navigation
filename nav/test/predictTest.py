@@ -204,7 +204,7 @@ class predictTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'invalid date')
 
-    def test900_030InvalidDate(self):       
+    def test900_035InvalidDate(self):       
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')
         self.setParm('date','2016-1-17')
