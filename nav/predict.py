@@ -10,7 +10,7 @@ def predict(values = None):
     sheet.cell_value(0, 0)
     result = 'not found'
     for i in range(sheet.nrows):
-        if (sheet.cell_value(i, 0) == values['body']):
+        if (sheet.cell_value(i, 0) == 'Hadar'):
             result = 'found'
     
     return result
