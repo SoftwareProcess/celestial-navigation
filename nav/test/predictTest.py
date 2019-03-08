@@ -164,6 +164,14 @@ class predictTest(unittest.TestCase):
         actualResult = nav.predict(self.inputDictionary)
         self.assertEquals(actualResult['long'], '75d53.6')
         self.assertEquals(actualResult['lat'], '7d24.3') 
+        
+    def test100_100BodyIsCaseIndependent(self):
+        self.setParm('body','betelgeuse')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertEquals(actualResult['long'], '75d53.6')
+        self.assertEquals(actualResult['lat'], '7d24.3') 
 
 #     def test200_010DefaultDateIfMissing(self):
 #         self.setParm('body','Betelgeuse')
