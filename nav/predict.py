@@ -11,6 +11,6 @@ def predict(values = None):
     result = 'not found'
     for i in range(sheet.nrows):
         if (sheet.cell_value(i, 0) == values['body']):
-            result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2)+ str(sheet.cell_value(i, 3))+ sheet.cell_value(i, 4)
+            result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2)+ str(sheet.cell_value(i, 3))+ str(sheet.cell_value(i, 4))
     
     return result
