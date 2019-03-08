@@ -1,5 +1,6 @@
 import unittest
 import httplib
+import xlrd
 from urllib import urlencode
 import json
 import nav.predict as nav
@@ -85,10 +86,15 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict()
 #         self.assertEquals(expectedResult, actualResult)
         
-    def test100_020ShouldReturnDictionary(self):
-        values = self.setParm('op','predict')
-        expectedResult = values
-        actualResult = nav.predict(values)
+#     def test100_020ShouldReturnDictionary(self):
+#         values = self.setParm('op','predict')
+#         expectedResult = values
+#         actualResult = nav.predict(values)
+#         self.assertEquals(expectedResult, actualResult)
+        
+    def test100_030ShouldReadStarDataAndOutPutNumberOfColumns(self):
+        expectedResult = 5
+        actualResult = nav.predict()
         self.assertEquals(expectedResult, actualResult)
      
            
