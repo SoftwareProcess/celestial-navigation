@@ -149,19 +149,24 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertAlmostEquals(actualResult, expectedResult, 2) 
 
-    def test100_090ShouldReturnCorrectLongAndLat(self):
-        self.setParm('body','Aldebaran')
-        self.setParm('date','2016-01-17')
-        self.setParm('time','03:15:42')
-        actualResult = nav.predict(self.inputDictionary)
-        self.assertEquals(actualResult['long'], '95d41.6')
-        self.assertEquals(actualResult['lat'], '16d32.3')
+#     def test100_090ShouldReturnCorrectLongAndLat(self):
+#         self.setParm('body','Aldebaran')
+#         self.setParm('date','2016-01-17')
+#         self.setParm('time','03:15:42')
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertEquals(actualResult['long'], '95d41.6')
+#         self.assertEquals(actualResult['lat'], '16d32.3')
+#         
+#     def test100_095ShouldReturnCorrectLongAndLat(self):
+#         self.setParm('body','Betelgeuse')
+#         self.setParm('date','2016-01-17')
+#         self.setParm('time','03:15:42')
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertEquals(actualResult['long'], '75d53.6')
+#         self.assertEquals(actualResult['lat'], '7d24.3') 
         
-    def test100_095ShouldReturnCorrectLongAndLat(self):
-        self.setParm('body','Betelgeuse')
-        self.setParm('date','2016-01-17')
-        self.setParm('time','03:15:42')
-        actualResult = nav.predict(self.inputDictionary)
-        self.assertEquals(actualResult['long'], '75d53.6')
-        self.assertEquals(actualResult['lat'], '7d24.3') 
-      
+#sad path test        
+    def test900_010MissingBody(self):       
+        self.setParm('op','predict')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'body is missing') 
