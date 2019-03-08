@@ -166,7 +166,13 @@ class predictTest(unittest.TestCase):
 #         self.assertEquals(actualResult['lat'], '7d24.3') 
         
 #sad path test        
-    def test900_010MissingBody(self):       
+#     def test900_010MissingBody(self):       
+#         self.setParm('op','predict')
+#         actualResult = dispatch.dispatch(self.inputDictionary)
+#         self.assertEquals(actualResult['error'], 'body is missing') 
+        
+    def test900_020StarNotInData(self):       
         self.setParm('op','predict')
+        self.setParm('body','unknown')
         actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'body is missing') 
+        self.assertEquals(actualResult['error'], 'star not in catalog')
