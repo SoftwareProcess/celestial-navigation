@@ -48,4 +48,4 @@ def predict(values = None):
     GHAstar = GHAstar % (360 * 60)
     values['long'] = convertMinutesToStr(GHAstar)
     
-    return GHAstar
+    return values
