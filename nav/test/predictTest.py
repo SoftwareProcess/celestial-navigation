@@ -149,58 +149,58 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertAlmostEquals(actualResult, expectedResult, 2) 
 
-#     def test100_090ShouldReturnCorrectLongAndLat(self):
-#         self.setParm('body','Aldebaran')
-#         self.setParm('date','2016-01-17')
-#         self.setParm('time','03:15:42')
-#         actualResult = nav.predict(self.inputDictionary)
-#         self.assertEquals(actualResult['long'], '95d41.6')
-#         self.assertEquals(actualResult['lat'], '16d32.3')
+    def test100_090ShouldReturnCorrectLongAndLat(self):
+        self.setParm('body','Aldebaran')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertEquals(actualResult['long'], '95d41.6')
+        self.assertEquals(actualResult['lat'], '16d32.3')
 #         
-#     def test100_095ShouldReturnCorrectLongAndLat(self):
-#         self.setParm('body','Betelgeuse')
-#         self.setParm('date','2016-01-17')
-#         self.setParm('time','03:15:42')
-#         actualResult = nav.predict(self.inputDictionary)
-#         self.assertEquals(actualResult['long'], '75d53.6')
-#         self.assertEquals(actualResult['lat'], '7d24.3') 
+    def test100_095ShouldReturnCorrectLongAndLat(self):
+        self.setParm('body','Betelgeuse')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertEquals(actualResult['long'], '75d53.6')
+        self.assertEquals(actualResult['lat'], '7d24.3') 
 
 #     def test200_010DefaultDateIfMissing(self):
 #         self.setParm('body','Betelgeuse')
 #         self.setParm('time','03:15:42')
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertEquals(actualResult, '2001-01-01')
- 
-    def test200_020DefaultTimeIfMissing(self):
-        self.setParm('body','Betelgeuse')
-        actualResult = nav.predict(self.inputDictionary)
-        self.assertEquals(actualResult, '00:00:00')
+#  
+#     def test200_020DefaultTimeIfMissing(self):
+#         self.setParm('body','Betelgeuse')
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertEquals(actualResult, '00:00:00')
         
 #sad path test        
-#     def test900_010MissingBody(self):       
-#         self.setParm('op','predict')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'body is missing') 
+    def test900_010MissingBody(self):       
+        self.setParm('op','predict')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'body is missing') 
         
-#     def test900_020StarNotInData(self):       
-#         self.setParm('op','predict')
-#         self.setParm('body','unknown')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'star not in catalog')
+    def test900_020StarNotInData(self):       
+        self.setParm('op','predict')
+        self.setParm('body','unknown')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'star not in catalog')
         
-#     def test900_030InvalidDate(self):       
-#         self.setParm('op','predict')
-#         self.setParm('body','Betelgeuse')
-#         self.setParm('date','2200-1-17')
-#         self.setParm('time','03:15:42')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'invalid date')
+    def test900_030InvalidDate(self):       
+        self.setParm('op','predict')
+        self.setParm('body','Betelgeuse')
+        self.setParm('date','2200-1-17')
+        self.setParm('time','03:15:42')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'invalid date')
 
-#     def test900_030InvalidDate(self):       
-#         self.setParm('op','predict')
-#         self.setParm('body','Betelgeuse')
-#         self.setParm('date','2016-1-17')
-#         self.setParm('time','03:15:99')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'invalid date')
+    def test900_030InvalidDate(self):       
+        self.setParm('op','predict')
+        self.setParm('body','Betelgeuse')
+        self.setParm('date','2016-1-17')
+        self.setParm('time','03:15:99')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'invalid date')
 
