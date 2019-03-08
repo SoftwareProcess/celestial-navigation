@@ -11,6 +11,11 @@ def predict(values = None):
         date = '2001-01-01'
     else:
         date = values['date']
+    if (not(values.has_key('time'))):
+        time = '00:00:00'
+    else:
+        time = values['time']    
+        
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
         minutes = int(x) * 60 + float(y)
@@ -38,7 +43,7 @@ def predict(values = None):
     
     values['lat'] = dec
        
-    dateTime = date + ' ' + values['time']
+    dateTime = date + ' ' + time
     try:
         dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
@@ -68,4 +73,4 @@ def predict(values = None):
     GHAstar = GHAstar % (360 * 60)
     values['long'] = convertMinutesToStr(GHAstar)
     
-    return date
+    return time
