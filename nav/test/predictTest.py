@@ -164,6 +164,14 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertEquals(actualResult['long'], '75d53.6')
 #         self.assertEquals(actualResult['lat'], '7d24.3') 
+
+    def test200_010DefaultDateIfMissing(self):
+        self.setParm('body','Betelgeuse')
+        self.setParm('time','03:15:42')
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertEquals(actualResult, '2001-01-01')
+ 
+
         
 #sad path test        
 #     def test900_010MissingBody(self):       
@@ -185,10 +193,11 @@ class predictTest(unittest.TestCase):
 #         actualResult = dispatch.dispatch(self.inputDictionary)
 #         self.assertEquals(actualResult['error'], 'invalid date')
 
-    def test900_030InvalidDate(self):       
-        self.setParm('op','predict')
-        self.setParm('body','Betelgeuse')
-        self.setParm('date','2016-1-17')
-        self.setParm('time','03:15:99')
-        actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'invalid date')
+#     def test900_030InvalidDate(self):       
+#         self.setParm('op','predict')
+#         self.setParm('body','Betelgeuse')
+#         self.setParm('date','2016-1-17')
+#         self.setParm('time','03:15:99')
+#         actualResult = dispatch.dispatch(self.inputDictionary)
+#         self.assertEquals(actualResult['error'], 'invalid date')
+
