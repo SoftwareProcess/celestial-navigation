@@ -7,8 +7,10 @@ def predict(values = None):
     if (not(values.has_key('body'))):
         values['error'] = 'body is missing'
         return values
-    
-    
+    if (not(values.has_key('date'))):
+        date = '2001-01-01'
+    else:
+        date = values['date']
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
         minutes = int(x) * 60 + float(y)
@@ -36,7 +38,7 @@ def predict(values = None):
     
     values['lat'] = dec
        
-    dateTime = values['date'] + ' ' + values['time']
+    dateTime = date + ' ' + values['time']
     try:
         dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
@@ -66,4 +68,4 @@ def predict(values = None):
     GHAstar = GHAstar % (360 * 60)
     values['long'] = convertMinutesToStr(GHAstar)
     
-    return values
+    return date
