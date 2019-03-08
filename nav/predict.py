@@ -1,7 +1,6 @@
 from math import sqrt, tan, pi
 import xlrd
 from datetime import datetime
-from datetime import time
 
 def predict(values = None):
     
@@ -15,20 +14,21 @@ def predict(values = None):
         if (sheet.cell_value(i, 0) == values['body']):
             result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2) + str(sheet.cell_value(i, 3))
     
-    dt1 = datetime.strptime(values['date'], '%Y-%m-%d')
-    dt2 = time.strptime(values['time'], '%H:%M:%S')
-    yearDiff = int(dt1.year) - 2001
+    dateTime = values['date'] + ' ' + values['time']
+    dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
+  
+    yearDiff = int(dt.year) - 2001
     cumProgression = yearDiff * -14.31667
     
     count = 0
-    for i in range (2001, int(dt1.year) + 1):
+    for i in range (2001, int(dt.year) + 1):
         if i % 4 == 0:
             count += 1
     dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
     leapProgression = dailyRotation * count
     
-    referenceDate = datetime(int(dt1.year),01,01)
-    referenceTime = time(0, 0, 0)
-    seconds = (dt1 - referenceDate).days * 86400
-    seconds += (dt2 - referenceTime).seconds
+    referenceDate = datetime(int(dt.year),01,01,0,0,0)
+
+    seconds = (dt - referenceDate).total_seconds()
+    
     return seconds
