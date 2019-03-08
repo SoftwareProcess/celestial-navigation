@@ -31,6 +31,6 @@ def predict(values = None):
     seconds = (dt - referenceDate).total_seconds()
     rotation = (seconds / 86164.1) % 1 * 360 * 60
     
-    GHAaries = 6042.6 + cumProgression + leapProgression
+    GHAaries = 6042.6 + cumProgression + leapProgression + rotation
     
-    return GHAaries
+    return cumProgression
