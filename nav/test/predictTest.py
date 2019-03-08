@@ -171,8 +171,16 @@ class predictTest(unittest.TestCase):
 #         actualResult = dispatch.dispatch(self.inputDictionary)
 #         self.assertEquals(actualResult['error'], 'body is missing') 
         
-    def test900_020StarNotInData(self):       
+#     def test900_020StarNotInData(self):       
+#         self.setParm('op','predict')
+#         self.setParm('body','unknown')
+#         actualResult = dispatch.dispatch(self.inputDictionary)
+#         self.assertEquals(actualResult['error'], 'star not in catalog')
+        
+    def test900_030InvalidDate(self):       
         self.setParm('op','predict')
-        self.setParm('body','unknown')
+        self.setParm('body','Betelgeuse')
+        self.setParm('date','2016-99-17')
+        self.setParm('time','03:15:42')
         actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'star not in catalog')
+        self.assertEquals(actualResult['error'], 'invalid date')
