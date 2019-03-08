@@ -18,4 +18,10 @@ def predict(values = None):
     yearDiff = int(dt.year) - 2001
     cumProgression = yearDiff * -14.31667
     
-    return cumProgression
+    count = 0
+    for i in range (2001, int(dt.year) + 1):
+        if i % 4 == 0:
+            count += 1
+    dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
+    leapProgression = dailyRotation * 3
+    return leapProgression
