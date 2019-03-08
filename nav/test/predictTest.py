@@ -153,7 +153,6 @@ class predictTest(unittest.TestCase):
         self.setParm('body','Aldebaran')
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42')
-        expectedResult = {}
         actualResult = nav.predict(self.inputDictionary)
         self.assertEquals(actualResult['long'], '95d41.6')
         self.assertEquals(actualResult['lat'], '16d32.3')
@@ -162,7 +161,6 @@ class predictTest(unittest.TestCase):
         self.setParm('body','Betelgeuse')
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42')
-        expectedResult = {}
         actualResult = nav.predict(self.inputDictionary)
         self.assertEquals(actualResult['long'], '75d53.6')
         self.assertEquals(actualResult['lat'], '7d24.3') 
