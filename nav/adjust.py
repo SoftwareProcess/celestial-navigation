@@ -26,6 +26,8 @@ def adjust(values = None):
         return values
     x, y = values['observation'].split('d')
     x = x.lstrip('0')
+    if (x == ''):
+        x = '0'
     y = y.lstrip('0')    
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
         values['error'] = 'observation is invalid'
