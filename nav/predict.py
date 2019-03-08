@@ -29,4 +29,4 @@ def predict(values = None):
     referenceDate = datetime(int(dt.year),01,01,0,0,0)
     seconds = (dt - referenceDate).total_seconds()
     
-    return seconds
+    return leapProgression
