@@ -37,15 +37,15 @@ def predict(values = None):
     values['lat'] = dec
        
     dateTime = values['date'] + ' ' + values['time']
-    dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
-    if (int(dt.year) < 2001 or int(dt.year) > 2100):
-        values['error'] = 'invalid date'
-        return values
     try:
-        tempDate = datetime.datetime(int(dt.year), int(dt.month), int(dt.day))
+        dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
         values['error'] = 'invalid date'
         return values;
+    if (int(dt.year) < 2001 or int(dt.year) > 2100):
+        values['error'] = 'invalid date'
+        return values
+
     yearDiff = int(dt.year) - 2001
     cumProgression = yearDiff * -14.31667
     
