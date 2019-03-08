@@ -40,6 +40,6 @@ def predict(values = None):
     GHAaries = 6042.6 + cumProgression + leapProgression + rotation
     
     GHAstar = GHAaries + convertStrToMinutes(SHA)
-    GHAstar = GHAstar % 360
+    GHAstar = GHAstar % (360 * 60)
     
     return GHAstar
