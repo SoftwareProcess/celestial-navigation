@@ -52,7 +52,7 @@ class predictTest(unittest.TestCase):
 
 
 
-# 500 adjust
+# 100 predict
 #    Analysis
 #        inputs
 #            observation -> string, mandatory, validated
