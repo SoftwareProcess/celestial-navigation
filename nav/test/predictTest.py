@@ -103,11 +103,17 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertEquals(actualResult, expectedResult)
         
-    def test100_050OutputDataForAStar(self):
-        self.setParm('body','Hadar')
-        expectedResult = '148d45.5-60d26.60.6'
+#     def test100_050OutputDataForAStar(self):
+#         self.setParm('body','Hadar')
+#         expectedResult = '148d45.5-60d26.60.6'
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertEquals(actualResult, expectedResult)
+        
+    def test100_060ShouldCalculateCumulativeProgression(self):
+        self.setParm('date','2016-01-17')
+        expectedResult = '-214.75'
         actualResult = nav.predict(self.inputDictionary)
-        self.assertEquals(actualResult, expectedResult)
+        self.assertAlmostEquals(actualResult, expectedResult)
      
            
       
