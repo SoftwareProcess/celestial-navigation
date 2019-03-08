@@ -1,6 +1,5 @@
 import unittest
 import httplib
-import xlrd
 from urllib import urlencode
 import json
 import nav.predict as nav

@@ -4,7 +4,7 @@ import nav.dispatch as dispatch
 from urllib import urlencode
 import httplib
 import json
-from math import sqrt
+
 
 class adjustTest(unittest.TestCase):
     def setUp(self):
