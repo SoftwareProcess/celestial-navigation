@@ -109,21 +109,21 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.predict(self.inputDictionary)
 #         self.assertEquals(actualResult, expectedResult)
         
-    def test100_060ShouldCalculateCumulativeProgression(self):
-        self.setParm('body','Aldebaran')
-        self.setParm('date','2016-01-17')
-        self.setParm('time','03:15:42')
-        expectedResult = -214.75
-        actualResult = nav.predict(self.inputDictionary)
-        self.assertAlmostEquals(actualResult, expectedResult, 5)
-        
-#     def test100_070ShouldCalculateLeapProgression(self):
+#     def test100_060ShouldCalculateCumulativeProgression(self):
 #         self.setParm('body','Aldebaran')
 #         self.setParm('date','2016-01-17')
 #         self.setParm('time','03:15:42')
-#         expectedResult = 176.925
+#         expectedResult = -214.75
 #         actualResult = nav.predict(self.inputDictionary)
-#         self.assertAlmostEquals(actualResult, expectedResult, 3)
+#         self.assertAlmostEquals(actualResult, expectedResult, 5)
+        
+    def test100_070ShouldCalculateLeapProgression(self):
+        self.setParm('body','Aldebaran')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')
+        expectedResult = 176.925
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertAlmostEquals(actualResult, expectedResult, 3)
      
 #     def test100_080ShouldCalculateSeconds(self):
 #         self.setParm('body','Aldebaran')
