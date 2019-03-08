@@ -1,4 +1,4 @@
-import xlrd
+import csv
 from datetime import datetime
 import os.path
 
@@ -27,17 +27,16 @@ def predict(values = None):
         string = str(degree) + 'd' + str(minutes)
         return string
     my_path = os.path.abspath(os.path.dirname(__file__))
-    path = os.path.join(my_path, "stardata.xlsx")
-    workbook = xlrd.open_workbook(path)
-    sheet = workbook.sheet_by_index(0)
-    sheet.cell_value(0, 0)
+    path = os.path.join(my_path, "stardata.csv")
     found = False
-    for i in range(sheet.nrows):
-        if (sheet.cell_value(i, 0).lower() == values['body'].lower()):
-            SHA = sheet.cell_value(i, 1)
-            dec = sheet.cell_value(i, 2)
-            found = True
-            
+    with open(path, 'r') as csvFile:
+        reader = csv.reader(csvFile)
+        for row in reader:
+            if (row[0].lower() == values['body'].lower()):
+                SHA = row[1]
+                dec = row[2]
+                found = True
+              
     if (not(found)):
         values['error'] = 'star not in catalog'
         return values
