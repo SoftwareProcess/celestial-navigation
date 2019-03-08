@@ -80,10 +80,10 @@ class predictTest(unittest.TestCase):
 
 
 
-    def test100_010ShouldVerifyCallToPredict(self):
-        expectedResult = 1.0
-        actualResult = nav.predict()
-        self.assertEquals(expectedResult, actualResult)
+#     def test100_010ShouldVerifyCallToPredict(self):
+#         expectedResult = 1.0
+#         actualResult = nav.predict()
+#         self.assertEquals(expectedResult, actualResult)
         
     def test100_020ShouldReturnDictionary(self):
         values = self.setParm('op','predict')
