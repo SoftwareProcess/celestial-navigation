@@ -165,13 +165,16 @@ class predictTest(unittest.TestCase):
 #         self.assertEquals(actualResult['long'], '75d53.6')
 #         self.assertEquals(actualResult['lat'], '7d24.3') 
 
-    def test200_010DefaultDateIfMissing(self):
-        self.setParm('body','Betelgeuse')
-        self.setParm('time','03:15:42')
-        actualResult = nav.predict(self.inputDictionary)
-        self.assertEquals(actualResult, '2001-01-01')
+#     def test200_010DefaultDateIfMissing(self):
+#         self.setParm('body','Betelgeuse')
+#         self.setParm('time','03:15:42')
+#         actualResult = nav.predict(self.inputDictionary)
+#         self.assertEquals(actualResult, '2001-01-01')
  
-
+    def test200_020DefaultTimeIfMissing(self):
+        self.setParm('body','Betelgeuse')
+        actualResult = nav.predict(self.inputDictionary)
+        self.assertEquals(actualResult, '00:00:00')
         
 #sad path test        
 #     def test900_010MissingBody(self):       
