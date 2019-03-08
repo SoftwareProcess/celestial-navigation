@@ -21,7 +21,7 @@ def predict(values = None):
     cumProgression = yearDiff * -14.31667
     
     count = 0
-    for i in range (2001, int(dt.year) + 1):
+    for i in range (2001, int(dt.year)):
         if i % 4 == 0:
             count += 1
     dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
