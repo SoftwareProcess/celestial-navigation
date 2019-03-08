@@ -180,7 +180,7 @@ class predictTest(unittest.TestCase):
     def test900_030InvalidDate(self):       
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')
-        self.setParm('date','2016-99-17')
+        self.setParm('date','2044-1-17')
         self.setParm('time','03:15:42')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'invalid date')
