@@ -217,6 +217,16 @@ class adjustTest(unittest.TestCase):
                           'op': 'adjust',
                           'temperature': '71'}      
         self.assertEquals(expectedResult, actualResult)
+        
+    def test500_061AnotherLeadingZeroInYTest(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','42d0000.0')
+        self.setParm('altitude','00d0.0')
+        actualResult = nav.adjust(self.inputDictionary)   
+        expectedResult = {'altitude':'41d59.0', 
+                          'observation': '42d0.0', 
+                          'op': 'adjust'}      
+        self.assertEquals(expectedResult, actualResult)    
     #sad path tests    
     def test900_040NoOpSpecifiedTest(self):
         self.setParm('op','')
