@@ -27,7 +27,7 @@ def predict(values = None):
         string = str(degree) + 'd' + str(minutes)
         return string
     my_path = os.path.abspath(os.path.dirname(__file__))
-    path = os.path.join(my_path, "../stardata.xlsx")
+    path = os.path.join(my_path, "stardata.xlsx")
     workbook = xlrd.open_workbook(path)
     sheet = workbook.sheet_by_index(0)
     sheet.cell_value(0, 0)
