@@ -31,7 +31,7 @@ def predict(values = None):
     sheet.cell_value(0, 0)
     found = False
     for i in range(sheet.nrows):
-        if (sheet.cell_value(i, 0) == values['body']):
+        if (sheet.cell_value(i, 0).lower() == values['body'].lower()):
             SHA = sheet.cell_value(i, 1)
             dec = sheet.cell_value(i, 2)
             found = True
