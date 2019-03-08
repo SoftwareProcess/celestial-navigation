@@ -1,4 +1,3 @@
-from math import sqrt, tan, pi
 import xlrd
 from datetime import datetime
 
