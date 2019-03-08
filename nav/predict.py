@@ -23,11 +23,17 @@ def predict(values = None):
     workbook = xlrd.open_workbook('C:\Users\Angus\Desktop\stardata.xlsx')
     sheet = workbook.sheet_by_index(0)
     sheet.cell_value(0, 0)
-    result = 'not found'
+    found = False
     for i in range(sheet.nrows):
         if (sheet.cell_value(i, 0) == values['body']):
             SHA = sheet.cell_value(i, 1)
             dec = sheet.cell_value(i, 2)
+            found = True
+            
+    if (not(found)):
+        values['error'] = 'star not in catalog'
+        return values
+    
     values['lat'] = dec
        
     dateTime = values['date'] + ' ' + values['time']
