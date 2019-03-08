@@ -15,6 +15,7 @@ def predict(values = None):
             result = sheet.cell_value(i, 1) + sheet.cell_value(i, 2) + str(sheet.cell_value(i, 3))
     
     dt = datetime.strptime(values['date'], '%Y-%m-%d')
+    dt = datetime.strptime(values['time'], '%H:%M:%S')
     yearDiff = int(dt.year) - 2001
     cumProgression = yearDiff * -14.31667
     
@@ -24,4 +25,6 @@ def predict(values = None):
             count += 1
     dailyRotation = abs((1 - 86164.1/86400) * 60 * 360)    
     leapProgression = dailyRotation * 3
+    
+    
     return leapProgression
