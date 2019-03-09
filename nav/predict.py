@@ -35,6 +35,7 @@ def predict(values = None):
             if (row[0].lower() == values['body'].lower()):
                 SHA = row[1]
                 dec = row[2]
+                values['body'] = row[0]
                 found = True            
     if (not(found)):
         values['error'] = 'star not in catalog'
