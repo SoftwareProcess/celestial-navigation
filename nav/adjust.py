@@ -36,8 +36,8 @@ def adjust(values = None):
     values['observation'] = x + 'd' + y
     if (not(values.has_key('height'))):
         height = 0 
-    elif (not(isint(values['height'])) or not(isfloat(values['height']))):
-        values['error'] = 'height is not numeric'    
+    elif (not(isint(values['height']))):
+        values['error'] = 'height is not an integer'    
         return values 
     elif (int(values['height']) < 0):
         values['error'] = 'height is invalid'
