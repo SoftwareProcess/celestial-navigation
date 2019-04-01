@@ -226,7 +226,12 @@ class adjustTest(unittest.TestCase):
         expectedResult = {'altitude':'41d59.0', 
                           'observation': '42d0.0', 
                           'op': 'adjust'}      
-        self.assertEquals(expectedResult, actualResult)    
+        self.assertEquals(expectedResult, actualResult)  
+        
+
+    
+    
+      
     #sad path tests    
     def test900_040NoOpSpecifiedTest(self):
         self.setParm('op','')
@@ -239,6 +244,12 @@ class adjustTest(unittest.TestCase):
         self.setParm('observation','42d0.0')
         actualResult = dispatch.dispatch(self.inputDictionary)         
         self.assertEquals(actualResult['error'], 'no op  is specified')
+        
+    def test900_060ShouldHaveAtleastOneDigitRightDecimal(self):
+        self.setParm('op','adjust')
+        self.setParm('observation','42d0')
+        actualResult = dispatch.dispatch(self.inputDictionary)         
+        self.assertEquals(actualResult['error'], 'must have at least one digit to the right of the decimal point')    
         
     
         
