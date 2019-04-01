@@ -33,8 +33,8 @@ def adjust(values = None):
         y = '0'       
     try:
         y = int(y)
-    except ValueError:
-         
+    except ValueError:  
+        pass     
     else:
         values['error'] = 'must have at least one digit to the right of the decimal point'
         return values
