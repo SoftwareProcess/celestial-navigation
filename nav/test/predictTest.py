@@ -210,4 +210,11 @@ class predictTest(unittest.TestCase):
         self.setParm('time','03:15:99')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'invalid date')
+        
+    def test900_040DateAndTimeMustHaveTwoDigits(self):       
+        self.setParm('body','Betelgeuse')
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42')        
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'date and time must have two digits')
 

@@ -42,6 +42,8 @@ def predict(values = None):
         return values
 #check if date and time is valid   
     dateTime = date + ' ' + time
+    
+    
     try:
         dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
