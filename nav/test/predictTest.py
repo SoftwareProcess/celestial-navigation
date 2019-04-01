@@ -198,7 +198,7 @@ class predictTest(unittest.TestCase):
     def test900_030InvalidDate(self):       
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')
-        self.setParm('date','2200-1-17')
+        self.setParm('date','2200-01-17')
         self.setParm('time','03:15:42')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'invalid date')
@@ -206,7 +206,7 @@ class predictTest(unittest.TestCase):
     def test900_035InvalidDate(self):       
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')
-        self.setParm('date','2016-1-17')
+        self.setParm('date','2016-01-17')
         self.setParm('time','03:15:99')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'invalid date')
@@ -215,7 +215,7 @@ class predictTest(unittest.TestCase):
         self.setParm('op','predict')       
         self.setParm('body','Betelgeuse')
         self.setParm('date','2016-01-17')
-        self.setParm('time','03:15:42')        
+        self.setParm('time','3:15:42')        
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'date and time must have two digits')
 
