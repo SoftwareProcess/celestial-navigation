@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 import os.path
+import re
 
 def predict(values = None):
 #check parameters   
@@ -41,9 +42,18 @@ def predict(values = None):
         values['error'] = 'star not in catalog'
         return values
 #check if date and time is valid   
+    dateform = re.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
+    if not dateform.match(date):
+        values['error'] = 'date and time must have two digits'
+        return values;
+    timeform = re.compile("^[0-9]{2}:[0-9]{2}:[0-9]{2}$")
+    if not timeform.match(time):
+        values['error'] = 'date and time must have two digits'
+        return values;
+
+
     dateTime = date + ' ' + time
-    
-    
+  
     try:
         dt = datetime.strptime(dateTime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
