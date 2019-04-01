@@ -2,7 +2,7 @@ import unittest
 import httplib
 from urllib import urlencode
 import json
-import nav.predict as nav
+import nav.correct as nav
 import nav.dispatch as dispatch
 
 class correctTest(unittest.TestCase):
@@ -77,6 +77,9 @@ class correctTest(unittest.TestCase):
 #        7) check if adjust can return desired dictionary
 
 
-
+    def test100_010ShouldVerifyCallToCorrect(self):
+        expectedResult = 1.0
+        actualResult = nav.correct()
+        self.assertEquals(expectedResult, actualResult)
 
 
