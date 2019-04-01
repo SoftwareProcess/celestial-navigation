@@ -28,7 +28,14 @@ def adjust(values = None):
     x = x.lstrip('0')
     if (x == ''):
         x = '0'
-    y = y.lstrip('0')    
+    y = y.lstrip('0')
+    if (y == ''):
+        y = '0'       
+    try:
+        y = int(y)
+    except ValueError:
+        values['error'] = 'must have at least one digit to the right of the decimal point'
+        return values        
     if (int(x) < 1 or int(x) >= 90 or float(y) < 0 or float(y) >= 60):
         values['error'] = 'observation is invalid'
         return values 
