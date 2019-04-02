@@ -28,9 +28,8 @@ def correct(values = None):
     
     correctedAzimuth = acos(
         (sin(radians(convertStrToDegrees(values['lat']))) - (sin(radians(convertStrToDegrees(values['assumedLat']))) * intermediateDistance))/
-        (cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(asin(intermediateDistance)))
-        
+        (cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(asin(intermediateDistance)))    
         )
-    
+    correctedAzimuth = convertMinutesToStr(correctedAzimuth*60*180/pi)
     
     return correctedAzimuth 
