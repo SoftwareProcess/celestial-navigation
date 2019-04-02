@@ -12,7 +12,7 @@ def correct(values = None):
         string = str(degree) + 'd' + str(minutes)
         return string
     
+    LHA = convertStrToMinutes(values['long']) + convertStrToMinutes(values['assumedLong'])
+    result = convertMinutesToStr(LHA)
     
-    
-    
-    return values 
+    return result 
