@@ -1,4 +1,4 @@
-from cmath import sin, cos
+from math import sin, cos
 
 
 def correct(values = None):
