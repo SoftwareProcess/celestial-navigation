@@ -1,3 +1,4 @@
+from cmath import sin, cos
 
 
 def correct(values = None):
@@ -11,8 +12,15 @@ def correct(values = None):
         minutes = round(arg % 60, 1)
         string = str(degree) + 'd' + str(minutes)
         return string
+    def convertStrToDegrees(arg):
+        x, y = arg.split('d')
+        degrees = int(x) + float(y)/60
+        return degrees
+    
     
     LHA = convertStrToMinutes(values['long']) + convertStrToMinutes(values['assumedLong'])
-    result = convertMinutesToStr(LHA)
+    intermediateDistance = (sin(convertStrToDegrees(values['lat'])) 
+        * sin(convertStrToDegrees(values['assumedLat']))) + (cos(convertStrToDegrees(values['lat'])) 
+        * cos(convertStrToDegrees(values['assumedLat'])) *cos(LHA/60))
     
-    return result 
+    return intermediateDistance 
