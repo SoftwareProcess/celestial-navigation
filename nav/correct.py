@@ -24,7 +24,7 @@ def correct(values = None):
         * cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(radians(LHA)))
     
     correctedAltitude = convertMinutesToStr(asin(intermediateDistance)*60*180/pi)
-     
+    correctedDistance = int(round(convertStrToMinutes(values['altitude']) - convertStrToMinutes(correctedAltitude)))
     
     
-    return correctedAltitude 
+    return correctedDistance 
