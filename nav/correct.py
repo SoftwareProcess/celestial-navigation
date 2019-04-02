@@ -24,7 +24,7 @@ def correct(values = None):
         * cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(radians(LHA)))
     
     correctedAltitude = asin(intermediateDistance)
-    
+     
     
     
     return correctedAltitude 
