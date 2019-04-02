@@ -82,18 +82,31 @@ class correctTest(unittest.TestCase):
 #         actualResult = nav.correct()
 #         self.assertEquals(expectedResult, actualResult)
 
-    def test100_020ShouldReturnDictionary(self):
+#     def test100_020ShouldReturnDictionary(self):
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')
+#         self.setParm('long','95d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         expectedResult = {'altitude':'13d42.3', 
+#                           'assumedLat': '-53d38.4', 
+#                           'assumedLong': '350d35.3',  
+#                           'long': '95d41.6', 
+#                           'op': 'correct',
+#                           'lat': '16d32.3'}     
+#         actualResult = nav.correct(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)
+        
+    def test100_030ShouldCalculateLHA(self): 
         self.setParm('op','correct')
         self.setParm('lat','16d32.3')
         self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
         self.setParm('assumedLat','-53d38.4')
-        self.setParm('assumedLong','350d35.3') 
-        expectedResult = {'altitude':'13d42.3', 
-                          'assumedLat': '-53d38.4', 
-                          'assumedLong': '350d35.3',  
-                          'long': '95d41.6', 
-                          'op': 'correct',
-                          'lat': '16d32.3'}     
+        self.setParm('assumedLong','350d35.3')
+        expectedResult = "86d16.9"
         actualResult = nav.correct(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)
+        
+        
