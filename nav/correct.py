@@ -1,4 +1,4 @@
-from math import sin, cos, radians
+from math import sin, cos, radians, asin
 
 
 def correct(values = None):
@@ -22,5 +22,9 @@ def correct(values = None):
     intermediateDistance = (sin(radians(convertStrToDegrees(values['lat']))) 
         * sin(radians(convertStrToDegrees(values['assumedLat'])))) + (cos(radians(convertStrToDegrees(values['lat']))) 
         * cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(radians(LHA)))
+    
+    correctedAltitude = asin(intermediateDistance)
+    
+    
     
     return intermediateDistance 
