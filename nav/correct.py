@@ -18,9 +18,9 @@ def correct(values = None):
         return degrees
     
     
-    LHA = convertStrToMinutes(values['long']) + convertStrToMinutes(values['assumedLong'])
+    LHA = convertStrToDegrees(values['long']) + convertStrToDegrees(values['assumedLong'])
     intermediateDistance = (sin(convertStrToDegrees(values['lat'])) 
         * sin(convertStrToDegrees(values['assumedLat']))) + (cos(convertStrToDegrees(values['lat'])) 
-        * cos(convertStrToDegrees(values['assumedLat'])) *cos(LHA/60))
+        * cos(convertStrToDegrees(values['assumedLat'])) * cos(LHA))
     
     return intermediateDistance 
