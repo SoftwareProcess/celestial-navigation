@@ -19,8 +19,8 @@ def correct(values = None):
     
     
     LHA = convertStrToDegrees(values['long']) + convertStrToDegrees(values['assumedLong'])
-    intermediateDistance = (sin(convertStrToDegrees(values['lat'])) 
-        * sin(convertStrToDegrees(values['assumedLat']))) + (cos(convertStrToDegrees(values['lat'])) 
-        * cos(convertStrToDegrees(values['assumedLat'])) * cos(LHA))
+    intermediateDistance = sin(convertStrToDegrees(values['lat'])) 
+#         * sin(convertStrToDegrees(values['assumedLat']))) + (cos(convertStrToDegrees(values['lat'])) 
+#         * cos(convertStrToDegrees(values['assumedLat'])) * cos(LHA))
     
     return intermediateDistance 
