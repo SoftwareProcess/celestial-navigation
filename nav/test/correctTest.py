@@ -131,19 +131,28 @@ class correctTest(unittest.TestCase):
 #         actualResult = nav.correct(self.inputDictionary)
 #         self.assertAlmostEquals(expectedResult, actualResult, 3)
 
-    def test100_060ShouldConvertCorrectedAltitude(self): 
+#     def test100_060ShouldConvertCorrectedAltitude(self): 
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')
+#         self.setParm('long','95d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLat','53d38.4')
+#         self.setParm('assumedLong','350d35.3')
+#         expectedResult = "15d25.9"
+#         actualResult = nav.correct(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)
+
+
+    def test100_060ShouldCalculateCorrectedDistance(self): 
         self.setParm('op','correct')
         self.setParm('lat','16d32.3')
         self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
         self.setParm('assumedLat','53d38.4')
         self.setParm('assumedLong','350d35.3')
-        expectedResult = "15d25.9"
+        expectedResult = -104
         actualResult = nav.correct(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)
-
-
-
 
 
 
