@@ -1,4 +1,4 @@
 
 
 def correct(values = None):
-    pass 
+    return 1 
