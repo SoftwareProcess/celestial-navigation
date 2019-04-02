@@ -143,14 +143,25 @@ class correctTest(unittest.TestCase):
 #         self.assertEquals(expectedResult, actualResult)
 
 
-    def test100_060ShouldCalculateCorrectedDistance(self): 
+#     def test100_060ShouldCalculateCorrectedDistance(self): 
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')
+#         self.setParm('long','95d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLat','53d38.4')
+#         self.setParm('assumedLong','350d35.3')
+#         expectedResult = -104
+#         actualResult = nav.correct(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)
+        
+    def test100_070ShouldCalculateCorrectedAzimuth(self): 
         self.setParm('op','correct')
         self.setParm('lat','16d32.3')
         self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
         self.setParm('assumedLat','53d38.4')
         self.setParm('assumedLong','350d35.3')
-        expectedResult = -104
+        expectedResult = "82d55.6"
         actualResult = nav.correct(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)
 
