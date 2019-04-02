@@ -27,4 +27,4 @@ def correct(values = None):
     
     
     
-    return intermediateDistance 
+    return correctedAltitude 
