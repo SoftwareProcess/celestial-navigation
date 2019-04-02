@@ -1,4 +1,4 @@
-from math import sin, cos, radians, asin, pi
+from math import sin, cos, radians, asin, acos, pi
 
 
 def correct(values = None):
@@ -26,5 +26,11 @@ def correct(values = None):
     correctedAltitude = convertMinutesToStr(asin(intermediateDistance)*60*180/pi)
     correctedDistance = int(round(convertStrToMinutes(values['altitude']) - convertStrToMinutes(correctedAltitude)))
     
+    correctedAzimuth = acos(
+        (sin(radians(convertStrToDegrees(values['lat']))) - (sin(radians(convertStrToDegrees(values['assumedLat']))) * intermediateDistance))/
+        (cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(asin(intermediateDistance)))
+        
+        )
     
-    return correctedDistance 
+    
+    return correctedAzimuth 
