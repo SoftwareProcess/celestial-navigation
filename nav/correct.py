@@ -1,4 +1,4 @@
-from math import sin, cos
+from math import sin, cos, radians
 
 
 def correct(values = None):
@@ -19,7 +19,7 @@ def correct(values = None):
     
     
     LHA = convertStrToDegrees(values['long']) + convertStrToDegrees(values['assumedLong'])
-    intermediateDistance = sin(convertStrToDegrees(values['lat'])) 
+    intermediateDistance = sin(radians(convertStrToDegrees(values['lat']))) 
 #         * sin(convertStrToDegrees(values['assumedLat']))) + (cos(convertStrToDegrees(values['lat'])) 
 #         * cos(convertStrToDegrees(values['assumedLat'])) * cos(LHA))
     
