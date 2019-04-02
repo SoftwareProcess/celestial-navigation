@@ -127,7 +127,7 @@ class correctTest(unittest.TestCase):
         self.setParm('altitude','13d42.3')
         self.setParm('assumedLat','53d38.4')
         self.setParm('assumedLong','350d35.3')
-        expectedResult = "0.269338106"
+        expectedResult = 0.269338106
         actualResult = nav.correct(self.inputDictionary)
         self.assertAlmostEquals(expectedResult, actualResult, 3)
 
