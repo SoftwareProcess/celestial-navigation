@@ -334,3 +334,25 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'assumedLong is not valid')    
 
+    def test900_050ReturnErrorIfDegreeIsNotNumerical(self):
+        self.setParm('op','correct')
+        self.setParm('lat','abcd020.1')
+        self.setParm('long','0154d05.4')
+        self.setParm('altitude','037d015.6')
+        self.setParm('assumedLat','033d059.7')
+        self.setParm('assumedLong','074d035.3')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'lat is not valid')
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
