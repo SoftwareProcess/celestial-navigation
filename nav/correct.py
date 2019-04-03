@@ -32,11 +32,14 @@ def correct(values = None):
 #validate parameters
     if (not(values.has_key('lat')) or values['lat'] == ''):
         values['error'] = 'mandatory information is missing'
-        return values
-    
+        return values   
     if (validate('lat', -90, 90, 'gt') == False):
         values['error'] = 'lat is not valid'
         return values
+    
+    
+    
+    
     
     
 #helper function   
