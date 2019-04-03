@@ -77,27 +77,28 @@ def correct(values = None):
     
 #helper function   
 
-        
-        
-        
-        
-
-
-
-     
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
-        minutes = int(x) * 60 + float(y)
+        if (int(x) >= 0):
+            minutes = int(x) * 60 + float(y)
+        else:
+            minutes = int(x) * 60 - float(y)
         return minutes  
+    
     def convertMinutesToStr(arg):
         degree = int(arg / 60)
         minutes = round(arg % 60, 1)
         string = str(degree) + 'd' + str(minutes)
         return string
+    
     def convertStrToDegrees(arg):
         x, y = arg.split('d')
-        degrees = int(x) + float(y)/60
+        if (int(x) >= 0):
+            degrees = int(x) + float(y)/60
+        else:
+            degrees = int(x) - float(y)/60
         return degrees
+    
     def myRound(arg):
         temp = abs(arg)
         decimal = temp - int(temp)
