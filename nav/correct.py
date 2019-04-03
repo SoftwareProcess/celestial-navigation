@@ -16,7 +16,16 @@ def correct(values = None):
         x, y = arg.split('d')
         degrees = int(x) + float(y)/60
         return degrees
-    
+    def myRound(arg):
+        temp = abs(arg)
+        decimal = temp - int(temp)
+        if (decimal < 0.5):
+            temp = int(temp)
+        else:
+            temp = int(temp) + 1
+        if (arg < 0):
+            temp = -temp
+        return temp 
     
     LHA = convertStrToDegrees(values['long']) + convertStrToDegrees(values['assumedLong'])
     intermediateDistance = (sin(radians(convertStrToDegrees(values['lat']))) 
@@ -24,15 +33,17 @@ def correct(values = None):
         * cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(radians(LHA)))
     
     correctedAltitude = convertMinutesToStr(asin(intermediateDistance)*60*180/pi)
-    correctedDistance = int(round(convertStrToMinutes(values['altitude']) - convertStrToMinutes(correctedAltitude)))
+    correctedDistance = int(myRound(convertStrToMinutes(values['altitude']) - convertStrToMinutes(correctedAltitude)))
     
     correctedAzimuth = acos(
         (sin(radians(convertStrToDegrees(values['lat']))) - (sin(radians(convertStrToDegrees(values['assumedLat']))) * intermediateDistance))/
         (cos(radians(convertStrToDegrees(values['assumedLat']))) * cos(asin(intermediateDistance)))    
         )
     correctedAzimuth = convertMinutesToStr(correctedAzimuth*60*180/pi)
-    
-    
-    
-    
-    return correctedAzimuth 
+    if (correctedDistance < 0):
+        correctedDistance = abs(correctedDistance)
+        correctedAzimuth = (convertStrToMinutes(correctedAzimuth) + 180*60)%(360*60)
+        correctedAzimuth = convertMinutesToStr(correctedAzimuth)
+    values['correctedDistance'] = str(correctedDistance)
+    values['correctedAzimuth'] = correctedAzimuth
+    return values 
