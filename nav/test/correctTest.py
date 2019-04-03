@@ -293,7 +293,7 @@ class correctTest(unittest.TestCase):
         self.setParm('altitude','37d15.6')
         self.setParm('assumedLat','-90d0.0')
         actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'mandatory information is missing')    
+        self.assertEquals(actualResult['error'], 'assumedLat is not valid')    
 
 
 
