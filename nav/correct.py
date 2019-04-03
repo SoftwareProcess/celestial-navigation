@@ -44,7 +44,12 @@ def correct(values = None):
         values['error'] = 'long is not valid'
         return values    
     
-    
+    if (not(values.has_key('altitude')) or values['altitude'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
+    if (validate('altitude', 0, 90, 'gt') == False):
+        values['error'] = 'altitude is not valid'
+        return values
     
     
 #helper function   
