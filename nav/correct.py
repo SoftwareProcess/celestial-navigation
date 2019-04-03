@@ -43,6 +43,9 @@ def correct(values = None):
     if (validate('long', 0, 360, 'ge') == False):
         values['error'] = 'long is not valid'
         return values    
+    if (values['long'][0] == "-"):
+        values['error'] = 'long is not valid'
+        return values
     
     if (not(values.has_key('altitude')) or values['altitude'] == ''):
         values['error'] = 'mandatory information is missing'
