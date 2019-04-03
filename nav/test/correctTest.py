@@ -240,4 +240,4 @@ class correctTest(unittest.TestCase):
         self.setParm('lat','89d20.1')
         self.setParm('long','1545.4')
         actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'mandatory information is missing')    
+        self.assertEquals(actualResult['error'], 'long is not valid')    

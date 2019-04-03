@@ -40,7 +40,9 @@ def correct(values = None):
     if (not(values.has_key('long')) or values['long'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
-    
+    if (validate('long', 0, 360, 'ge') == False):
+        values['error'] = 'long is not valid'
+        return values    
     
     
     
