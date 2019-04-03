@@ -249,7 +249,12 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'long is not valid')
 
-
+    def test900_023MinutesNotInCorrectForm(self):       
+        self.setParm('op','correct')
+        self.setParm('lat','89d20.1')
+        self.setParm('long','154d5')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'long is not valid')
 
 
 
