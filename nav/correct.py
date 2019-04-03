@@ -90,7 +90,7 @@ def correct(values = None):
             degree = int(arg / 60)
             minutes = round(arg % 60, 1)
         else:
-            degree = int(arg / -60)
+            degree = int(arg / 60)
             minutes = -(round(arg % -60, 1))   
         string = str(degree) + 'd' + str(minutes)
             
