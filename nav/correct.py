@@ -46,4 +46,5 @@ def correct(values = None):
         correctedAzimuth = convertMinutesToStr(correctedAzimuth)
     values['correctedDistance'] = str(correctedDistance)
     values['correctedAzimuth'] = correctedAzimuth
+    
     return values 
