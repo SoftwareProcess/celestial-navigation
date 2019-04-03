@@ -2,18 +2,42 @@ from math import sin, cos, radians, asin, acos, pi
 
 
 def correct(values = None):
-    def validate(arg, lowerBound, upperBound):
+    
+    def validate(arg, lowerBound, upperBound, condition):
         if ('d' not in values[arg]):
             return False
+        x, y = values[arg].split('d')
+        x = x.lstrip('0')
+        if (x == ''):
+            x = '0'
+        y = y.lstrip('0')
+        if (y == ''):
+            y = '0'       
+        try:
+            y = int(y)
+        except ValueError:  
+            pass     
+        else:
+            return False
+        if (condition = 'ge'):    
+            if (int(x) < lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                return False  
+        if (condition = 'gt'):
+            if (int(x) <= lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                return False
+            
+        y = str(float(y)).zfill(1) 
+        values[arg] = x + 'd' + y
+        return True
 #validate parameters
     if (not(values.has_key('lat')) or values['lat'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
     
-    if (validate('lat', -90, 90) == False):
+    if (validate('lat', -90, 90, 'gt') == False):
         values['error'] = 'lat is not valid'
         return values
-
+    
     
 #helper function   
 
