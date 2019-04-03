@@ -211,13 +211,17 @@ class correctTest(unittest.TestCase):
 #         actualResult = dispatch.dispatch(self.inputDictionary)
 #         self.assertEquals(actualResult['error'], 'lat is not valid')
 
-    def test900_010LatOutOfBound(self):       
+    def test900_010LatOutOfUpperBound(self):       
         self.setParm('op','correct')
         self.setParm('lat','90d20.1')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'lat is not valid')
 
-
+    def test900_010LatOutOfLowerBound(self):       
+        self.setParm('op','correct')
+        self.setParm('lat','-90d0.0')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'lat is not valid')
 
 
 
