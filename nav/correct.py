@@ -2,7 +2,16 @@ from math import sin, cos, radians, asin, acos, pi
 
 
 def correct(values = None):
-    #helper function        
+#validate parameters
+    if (not(values.has_key('lat')) or values['lat'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
+    
+
+
+
+    
+#helper function        
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
         minutes = int(x) * 60 + float(y)
