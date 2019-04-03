@@ -176,18 +176,27 @@ class correctTest(unittest.TestCase):
 #         self.assertEquals(actualResult['correctedDistance'], '104')
 #         self.assertEquals(actualResult['correctedAzimuth'], '262d55.6')
 
-    def test100_081ShouldReturnDesiredOutput(self): 
+#     def test100_081ShouldReturnDesiredOutput(self): 
+#         self.setParm('op','correct')
+#         self.setParm('lat','89d20.1')
+#         self.setParm('long','154d5.4')
+#         self.setParm('altitude','37d15.6')
+#         self.setParm('assumedLat','33d59.7')
+#         self.setParm('assumedLong','74d35.3')
+#         actualResult = nav.correct(self.inputDictionary)
+#         self.assertEquals(actualResult['correctedDistance'], '222')
+#         self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
+
+    def test100_090ShouldReturnDesiredOutputThroughDispatch(self): 
         self.setParm('op','correct')
         self.setParm('lat','89d20.1')
         self.setParm('long','154d5.4')
         self.setParm('altitude','37d15.6')
         self.setParm('assumedLat','33d59.7')
         self.setParm('assumedLong','74d35.3')
-        actualResult = nav.correct(self.inputDictionary)
+        actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['correctedDistance'], '222')
         self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
-
-
 
 
 
