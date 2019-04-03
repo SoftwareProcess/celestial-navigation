@@ -19,13 +19,16 @@ def correct(values = None):
             pass     
         else:
             return False
-        if (condition == 'ge'):    
-            if (int(x) < lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
-                return False  
-        if (condition == 'gt'):
-            if (int(x) <= lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
-                return False
-            
+        try:
+            if (condition == 'ge'):    
+                if (int(x) < lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                    return False  
+            if (condition == 'gt'):
+                if (int(x) <= lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                    return False
+        except ValueError:
+            return False 
+                
         y = str(float(y)).zfill(1) 
         values[arg] = x + 'd' + y
         return True
