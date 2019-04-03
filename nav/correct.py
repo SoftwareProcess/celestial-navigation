@@ -64,7 +64,9 @@ def correct(values = None):
     if (validate('assumedLong', 0, 360, 'ge') == False):
         values['error'] = 'assumedLat is not valid'
         return values
-    
+    if (values['assumedLong'][0] == "-"):
+        values['error'] = 'assumedLat is not valid'
+        return values
     
     
 #helper function   
