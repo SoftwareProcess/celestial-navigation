@@ -199,7 +199,11 @@ class correctTest(unittest.TestCase):
         self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
 
 
-
+#sad path tests
+    def test900_010MissingLat(self):       
+        self.setParm('op','correct')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'mandatory information is missing')
 
 
 
