@@ -61,7 +61,9 @@ def correct(values = None):
     if (not(values.has_key('assumedLong')) or values['assumedLong'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
-    
+    if (validate('assumedLong', 0, 360, 'ge') == False):
+        values['error'] = 'assumedLat is not valid'
+        return values
     
     
     
