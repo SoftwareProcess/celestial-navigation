@@ -270,7 +270,7 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'mandatory information is missing')
 
-    def test900_040AltitudeNotValid(self):       
+    def test900_031AltitudeNotValid(self):       
         self.setParm('op','correct')
         self.setParm('lat','89d20.1')
         self.setParm('long','154d5.4')
@@ -278,7 +278,13 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'altitude is not valid')    
 
-
+    def test900_040MissingAssumedLat(self):       
+        self.setParm('op','correct')
+        self.setParm('lat','89d20.1')
+        self.setParm('long','154d5.4')
+        self.setParm('altitude','37d15.6')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'mandatory information is missing')
 
 
 

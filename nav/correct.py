@@ -51,6 +51,14 @@ def correct(values = None):
         values['error'] = 'altitude is not valid'
         return values
     
+    if (not(values.has_key('assumedLat')) or values['assumedLat'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
+    
+    
+    
+    
+    
     
 #helper function   
 
