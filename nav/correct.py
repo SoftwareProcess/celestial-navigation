@@ -62,10 +62,10 @@ def correct(values = None):
         values['error'] = 'mandatory information is missing'
         return values
     if (validate('assumedLong', 0, 360, 'ge') == False):
-        values['error'] = 'assumedLat is not valid'
+        values['error'] = 'assumedLong is not valid'
         return values
     if (values['assumedLong'][0] == "-"):
-        values['error'] = 'assumedLat is not valid'
+        values['error'] = 'assumedLong is not valid'
         return values
     
     
