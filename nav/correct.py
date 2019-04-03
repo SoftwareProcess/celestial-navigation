@@ -37,6 +37,9 @@ def correct(values = None):
         values['error'] = 'lat is not valid'
         return values
     
+    if (not(values.has_key('long')) or values['long'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
     
     
     
