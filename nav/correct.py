@@ -19,10 +19,10 @@ def correct(values = None):
             pass     
         else:
             return False
-        if (condition = 'ge'):    
+        if (condition == 'ge'):    
             if (int(x) < lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
                 return False  
-        if (condition = 'gt'):
+        if (condition == 'gt'):
             if (int(x) <= lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
                 return False
             
