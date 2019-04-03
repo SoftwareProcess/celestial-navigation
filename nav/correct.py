@@ -12,7 +12,7 @@ def correct(values = None):
     
     if (validate('lat', -90, 90) == False):
         values['error'] = 'lat is not valid'
-
+        return values
 
     
 #helper function   
