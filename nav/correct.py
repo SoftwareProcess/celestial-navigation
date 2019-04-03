@@ -2,6 +2,9 @@ from math import sin, cos, radians, asin, acos, pi
 
 
 def correct(values = None):
+    def validate(arg, lowerBound, upperBound):
+        if ('d' not in values[arg]):
+            return False
 #validate parameters
     if (not(values.has_key('lat')) or values['lat'] == ''):
         values['error'] = 'mandatory information is missing'
@@ -13,9 +16,7 @@ def correct(values = None):
 
     
 #helper function   
-    def validate(arg, lowerBound, upperBound):
-        if ('d' not in values[arg]):
-            return False
+
         
         
         
