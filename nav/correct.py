@@ -7,11 +7,23 @@ def correct(values = None):
         values['error'] = 'mandatory information is missing'
         return values
     
-
+    if (validate('lat', -90, 90) == False):
+        values['error'] = 'lat is not valid'
 
 
     
-#helper function        
+#helper function   
+    def validate(arg, lowerBound, upperBound):
+        if ('d' not in values[arg]):
+            return False
+        
+        
+        
+        
+
+
+
+     
     def convertStrToMinutes(arg):
         x, y = arg.split('d')
         minutes = int(x) * 60 + float(y)

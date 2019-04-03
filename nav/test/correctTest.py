@@ -187,26 +187,27 @@ class correctTest(unittest.TestCase):
 #         self.assertEquals(actualResult['correctedDistance'], '222')
 #         self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
 
-    def test100_090ShouldReturnDesiredOutputThroughDispatch(self): 
-        self.setParm('op','correct')
-        self.setParm('lat','89d20.1')
-        self.setParm('long','154d5.4')
-        self.setParm('altitude','37d15.6')
-        self.setParm('assumedLat','33d59.7')
-        self.setParm('assumedLong','74d35.3')
-        actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['correctedDistance'], '222')
-        self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
-
-
-#sad path tests
-    def test900_010MissingLat(self):       
-        self.setParm('op','correct')
-        actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'mandatory information is missing')
+#     def test100_090ShouldReturnDesiredOutputThroughDispatch(self): 
+#         self.setParm('op','correct')
+#         self.setParm('lat','89d20.1')
+#         self.setParm('long','154d5.4')
+#         self.setParm('altitude','37d15.6')
+#         self.setParm('assumedLat','33d59.7')
+#         self.setParm('assumedLong','74d35.3')
+#         actualResult = dispatch.dispatch(self.inputDictionary)
+#         self.assertEquals(actualResult['correctedDistance'], '222')
+#         self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')
+# 
+# 
+# #sad path tests
+#     def test900_010MissingLat(self):       
+#         self.setParm('op','correct')
+#         actualResult = dispatch.dispatch(self.inputDictionary)
+#         self.assertEquals(actualResult['error'], 'mandatory information is missing')
 
     def test900_010LatIsNotValid(self):       
         self.setParm('op','correct')
+        self.setParm('lat','8920.1')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'lat is not valid')
 
