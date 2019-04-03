@@ -54,7 +54,9 @@ def correct(values = None):
     if (not(values.has_key('assumedLat')) or values['assumedLat'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
-    
+    if (validate('assumedLat', -90, 90, 'gt') == False):
+        values['error'] = 'assumedLat is not valid'
+        return values
     
     
     
