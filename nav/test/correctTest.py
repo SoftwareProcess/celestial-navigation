@@ -304,5 +304,13 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'mandatory information is missing')
 
-
+    def test900_041AssumedLongNotValid(self):       
+        self.setParm('op','correct')
+        self.setParm('lat','89d20.1')
+        self.setParm('long','154d5.4')
+        self.setParm('altitude','37d15.6')
+        self.setParm('assumedLat','33d59.7')
+        self.setParm('assumedLong','-0d30.3')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'assumedLong is not valid')    
 
