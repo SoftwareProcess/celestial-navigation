@@ -200,16 +200,16 @@ class correctTest(unittest.TestCase):
 # 
 # 
 # #sad path tests
-#     def test900_010MissingLat(self):       
-#         self.setParm('op','correct')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'mandatory information is missing')
-
-#     def test900_011LatIsNotValid(self):       
-#         self.setParm('op','correct')
-#         self.setParm('lat','8920.1')
-#         actualResult = dispatch.dispatch(self.inputDictionary)
-#         self.assertEquals(actualResult['error'], 'lat is not valid')
+    def test900_010MissingLat(self):       
+        self.setParm('op','correct')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'mandatory information is missing')
+  
+    def test900_011LatIsNotValid(self):       
+        self.setParm('op','correct')
+        self.setParm('lat','8920.1')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'lat is not valid')
 
     def test900_012LatOutOfUpperBound(self):       
         self.setParm('op','correct')
@@ -229,5 +229,5 @@ class correctTest(unittest.TestCase):
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'lat is not valid')
 
-
+    
 
