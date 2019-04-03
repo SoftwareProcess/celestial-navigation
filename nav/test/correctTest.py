@@ -208,7 +208,21 @@ class correctTest(unittest.TestCase):
         self.setParm('assumedLong','074d035.3')
         actualResult = dispatch.dispatch(self.inputDictionary)
         self.assertEquals(actualResult['correctedDistance'], '222')
-        self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')        
+        self.assertEquals(actualResult['correctedAzimuth'], '0d36.0')  
+        
+    def test100_092ShouldReturnDesiredOutputThroughDispatch(self): 
+        self.setParm('op','correct')
+        self.setParm('lat','16d32.3')
+        self.setParm('long','95d41.6')
+        self.setParm('altitude','13d42.3')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3')
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult['correctedDistance'], '1488')
+        self.assertEquals(actualResult['correctedAzimuth'], '77d6.9')    
+        
+        
+              
 # 
 # 
 # #sad path tests
