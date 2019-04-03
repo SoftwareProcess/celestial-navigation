@@ -86,9 +86,14 @@ def correct(values = None):
         return minutes  
     
     def convertMinutesToStr(arg):
-        degree = int(arg / 60)
-        minutes = round(arg % 60, 1)
+        if (arg >= 0):
+            degree = int(arg / 60)
+            minutes = round(arg % 60, 1)
+        else:
+            degree = int(arg / -60)
+            minutes = -(round(arg % 60, 1))   
         string = str(degree) + 'd' + str(minutes)
+            
         return string
     
     def convertStrToDegrees(arg):
