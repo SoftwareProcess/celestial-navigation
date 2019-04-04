@@ -1,5 +1,9 @@
-from math import sin, cos, radians, asin, acos, pi
-
+from math import sin
+from math import cos
+from math import radians
+from math import asin
+from math import acos
+from math import pi
 
 def correct(values = None):
     
