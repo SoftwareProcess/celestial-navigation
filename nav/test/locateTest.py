@@ -95,14 +95,21 @@ class predictTest(unittest.TestCase):
 #         self.assertAlmostEquals(expectedResult, actualResult, 2)
 
     
-    def test100_031ShouldReturnnsCorrection(self):
+#     def test100_031ShouldReturnnsCorrection(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         self.setParm('corrections','[[50,45d0.0], [75,60d42.0],[100,300d11.2],[42,42d12.3],[70,60d45.0],[10,280d0.0]]')
+#         expectedResult = 31.57    
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertAlmostEquals(expectedResult, actualResult, 2)
+
+    def test100_040ShouldReturnewCorrection(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','-53d38.4')
         self.setParm('assumedLong','350d35.3') 
         self.setParm('corrections','[[50,45d0.0], [75,60d42.0],[100,300d11.2],[42,42d12.3],[70,60d45.0],[10,280d0.0]]')
-        expectedResult = 31.57    
+        expectedResult = 15.63    
         actualResult = nav.locate(self.inputDictionary)
         self.assertAlmostEquals(expectedResult, actualResult, 2)
-
-
 
