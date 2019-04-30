@@ -66,15 +66,22 @@ class predictTest(unittest.TestCase):
 #         actualResult = nav.locate(self.inputDictionary)
 #         self.assertEquals(expectedResult, actualResult)
 
-    def test100_021ShouldReadHowManyElementsInCorrections(self):
+#     def test100_021ShouldReadHowManyElementsInCorrections(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         self.setParm('corrections','[[100,1d0.1]]')
+#         expectedResult = 1     
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)
+
+    def test100_021ShouldReturnExactElementAsStringInCorrections(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','-53d38.4')
         self.setParm('assumedLong','350d35.3') 
         self.setParm('corrections','[[100,1d0.1]]')
-        expectedResult = 1     
+        expectedResult = '100,1d0.1'    
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)
-
-
 
 
