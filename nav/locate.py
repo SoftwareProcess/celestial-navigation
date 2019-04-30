@@ -68,22 +68,17 @@ def locate(values = None):
     presentLat = convertMinutesToStr((convertStrToMinutes(values['assumedLat']) + nsCorrection))
     presentLong = convertMinutesToStr((convertStrToMinutes(values['assumedLong']) + ewCorrection))
     
-#     tempSum = 0
-#     for i in range(numOfCorrections):
-#         corDis, corAzm = tempList[i].split(',') 
-#         tempSum = tempSum + sqrt((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - nsCorrection)**2 + 
-#                                  (float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection)**2)
-#     percision = 1 / numOfCorrections * tempSum                         
-#     percision = myRound(percision)
-    
-    
-    corDis, corAzm = tempList[0].split(',') 
-    tempSum = (pow((float(corDis) * cos(radians(convertStrToDegrees(corAzm))) - nsCorrection), 2) + 
-               pow((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection), 2))
-    percision = 1 / numOfCorrections * tempSum                         
+    tempSum = 0
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',') 
+        tempSum = tempSum + sqrt(pow((float(corDis) * cos(radians(convertStrToDegrees(corAzm))) - nsCorrection), 2) + 
+                                 pow((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection), 2))
+    percision = float(1)/numOfCorrections * tempSum                         
+    percision = myRound(percision)
+                           
    
     
     values['percision'] = str(percision)
     
 
-    return tempSum;
+    return values;
