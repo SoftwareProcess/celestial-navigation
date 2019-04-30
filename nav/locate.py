@@ -78,8 +78,8 @@ def locate(values = None):
     
     
     corDis, corAzm = tempList[0].split(',') 
-    tempSum = ((float(corDis) * cos(radians(convertStrToDegrees(corAzm))) - nsCorrection)**2 + 
-              (float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection)**2)
+    tempSum = (pow((float(corDis) * cos(radians(convertStrToDegrees(corAzm))) - nsCorrection), 2) + 
+               pow((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection), 2))
     percision = 1 / numOfCorrections * tempSum                         
    
     
