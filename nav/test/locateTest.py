@@ -93,9 +93,9 @@ class predictTest(unittest.TestCase):
         self.setParm('corrections','[[50,45d0.0]]')
         expectedResult = 35.36    
         actualResult = nav.locate(self.inputDictionary)
-        self.assertAlmostEquals(expectedResult, actualResult, 2)
+        self.assertAlmostEquals(expectedResult, actualResult, 3)
 
-
+    
 
 
 
