@@ -77,7 +77,7 @@ def locate(values = None):
 #     percision = myRound(percision)
     
 
-    corDis, corAzm = tempList[i].split(',') 
+    corDis, corAzm = tempList[0].split(',') 
     tempSum = ((float(corDis) * cos(radians(convertStrToDegrees(corAzm))) - nsCorrection)**2 + 
               (float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection)**2)
     percision = 1 / numOfCorrections * tempSum                         
