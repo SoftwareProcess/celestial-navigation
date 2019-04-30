@@ -47,8 +47,8 @@ def locate(values = None):
         tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
     
     
+    nsCorrection = tempSum / numOfCorrections
     
     
     
-    
-    return tempSum;
+    return nsCorrection;
