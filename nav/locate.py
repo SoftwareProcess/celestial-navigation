@@ -1,4 +1,4 @@
 
 
 def locate(values = None):
-    pass;
+    return values;
