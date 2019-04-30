@@ -55,6 +55,7 @@ def locate(values = None):
     ewCorrection = tempSum / numOfCorrections
     
     presentLat = convertMinutesToStr((convertStrToMinutes(values['assumedLat']) + nsCorrection))
+    presentLong = convertMinutesToStr((convertStrToMinutes(values['assumedLong']) + ewCorrection))
     
     
     
@@ -69,5 +70,4 @@ def locate(values = None):
     
     
     
-    
-    return presentLat;
+    return presentLong;
