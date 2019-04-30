@@ -16,7 +16,7 @@ def locate(values = None):
             tempList.append(temp)
     numOfCorrections = len(tempList)
     
-    for i in range(numOfCorrections):
+#     for i in range(numOfCorrections):
         
     
     
