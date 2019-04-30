@@ -1,4 +1,4 @@
-from math import cos, radians, sin
+from math import cos, radians, sin, sqrt
 
 
 def locate(values = None):
@@ -28,7 +28,18 @@ def locate(values = None):
             degree = int(arg / 60)
             minutes = -(round(arg % -60, 1))   
         string = str(degree) + 'd' + str(minutes)           
-        return string    
+        return string  
+    
+    def myRound(arg):
+        temp = abs(arg)
+        decimal = temp - int(temp)
+        if (decimal < 0.5):
+            temp = int(temp)
+        else:
+            temp = int(temp) + 1
+        if (arg < 0):
+            temp = -temp
+        return temp  
  
     correctionString = values['corrections']
     correctionString = correctionString[1:-1]
@@ -57,17 +68,15 @@ def locate(values = None):
     presentLat = convertMinutesToStr((convertStrToMinutes(values['assumedLat']) + nsCorrection))
     presentLong = convertMinutesToStr((convertStrToMinutes(values['assumedLong']) + ewCorrection))
     
+    tempSum = 0
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',') 
+        tempSum = tempSum + sqrt((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - nsCorrection)**2 + 
+                                 (float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection)**2)
+    percision = 1 / numOfCorrections * tempSum                         
+    percision = myRound(percision)
     
+    values['percision'] = percision
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    return presentLong;
+
+    return values;
