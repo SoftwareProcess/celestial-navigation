@@ -76,7 +76,7 @@ def locate(values = None):
     percision = 1 / numOfCorrections * tempSum                         
     percision = myRound(percision)
     
-    values['percision'] = percision
+    values['percision'] = str(percision)
     
 
     return values;
