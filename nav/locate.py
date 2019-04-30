@@ -86,4 +86,4 @@ def locate(values = None):
     values['percision'] = str(percision)
     
 
-    return percision;
+    return tempSum;
