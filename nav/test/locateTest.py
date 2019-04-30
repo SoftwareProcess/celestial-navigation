@@ -5,7 +5,7 @@ import json
 import nav.locate as nav
 import nav.dispatch as dispatch
 
-class predictTest(unittest.TestCase):
+class locateTest(unittest.TestCase):
     def setUp(self):
         self.inputDictionary = {}
         self.errorKey = "error"
