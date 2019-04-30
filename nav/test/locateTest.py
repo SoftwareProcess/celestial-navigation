@@ -48,21 +48,33 @@ class predictTest(unittest.TestCase):
         return result
 
 
-    def test100_010ShouldVerifyCallToLocate(self):
-        expectedResult = 1.0
-        actualResult = nav.locate(expectedResult)
-        self.assertEquals(expectedResult, actualResult)
-        
-        
-    def test100_020ShouldReturnDictionary(self):
+#     def test100_010ShouldVerifyCallToLocate(self):
+#         expectedResult = 1.0
+#         actualResult = nav.locate(expectedResult)
+#         self.assertEquals(expectedResult, actualResult)
+#         
+#         
+#     def test100_020ShouldReturnDictionary(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         self.setParm('corrections','[[100,1d0.1]]')
+#         expectedResult = {'assumedLat': '-53d38.4', 
+#                           'assumedLong': '350d35.3', 
+#                           'corrections': '[[100,1d0.1]]',   
+#                           'op': 'locate'}     
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)
+
+    def test100_021ShouldReadHowManyElementsInCorrections(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','-53d38.4')
         self.setParm('assumedLong','350d35.3') 
         self.setParm('corrections','[[100,1d0.1]]')
-        expectedResult = {'assumedLat': '-53d38.4', 
-                          'assumedLong': '350d35.3', 
-                          'corrections': '[[100,1d0.1]]',   
-                          'op': 'locate'}     
+        expectedResult = 1     
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)
+
+
+
 
