@@ -1,6 +1,27 @@
+from math import cos, radians
 
 
 def locate(values = None):
+    
+    
+    
+    
+    def convertStrToDegrees(arg):
+        x, y = arg.split('d')
+        if (int(x) >= 0):
+            degrees = int(x) + float(y)/60
+        else:
+            degrees = int(x) - float(y)/60
+        return degrees
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -16,10 +37,18 @@ def locate(values = None):
             tempList.append(temp)
     numOfCorrections = len(tempList)
     
-#     for i in range(numOfCorrections):
+    tempSum = 0
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',')
         
+        
+        
+        
+        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
     
     
     
     
-    return tempList[0];
+    
+    
+    return tempSum;
