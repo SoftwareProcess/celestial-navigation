@@ -1,9 +1,7 @@
-from math import cos, radians
+from math import cos, radians, sin
 
 
 def locate(values = None):
-    
-    
     
     
     def convertStrToDegrees(arg):
@@ -15,16 +13,7 @@ def locate(values = None):
         return degrees
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     correctionString = values['corrections']
     correctionString = correctionString[1:-1]
     tempList = []
@@ -39,16 +28,15 @@ def locate(values = None):
     
     tempSum = 0
     for i in range(numOfCorrections):
-        corDis, corAzm = tempList[i].split(',')
-        
-        
-        
-        
-        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
-    
-    
+        corDis, corAzm = tempList[i].split(',') 
+        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm))) 
     nsCorrection = tempSum / numOfCorrections
     
+    tempSum = 0
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',') 
+        tempSum = tempSum + float(corDis) * sin(radians(convertStrToDegrees(corAzm))) 
+    ewCorrection = tempSum / numOfCorrections
     
     
-    return nsCorrection;
+    return ewCorrection;
