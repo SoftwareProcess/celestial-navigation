@@ -1,5 +1,5 @@
 from math import cos, radians, sin, sqrt
-import numpy as np
+
 
 def locate(values = None):
     
