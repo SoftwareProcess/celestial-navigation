@@ -11,6 +11,8 @@ def correct(values = None):
         if ('d' not in values[arg]):
             return False
         x, y = values[arg].split('d')
+        if (x == ''):
+            return False
         x = x.lstrip('0')
         if (x == ''):
             x = '0'
