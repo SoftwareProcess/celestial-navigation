@@ -143,7 +143,7 @@ class predictTest(unittest.TestCase):
         self.setParm('op','locate')
         self.setParm('assumedLat','32d36.5')
         self.setParm('assumedLong','274d31.1') 
-        self.setParm('corrections','[[50,45d0.0]]') 
+        self.setParm('corrections','[[50,45d0.0], [75,60d42.0],[100,300d11.2],[42,42d12.3],[70,60d45.0],[10,280d0.0]]') 
         expectedResult = 403.56        
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(expectedResult, actualResult)         
