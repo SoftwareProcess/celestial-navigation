@@ -1,5 +1,5 @@
 from math import cos, radians, sin, sqrt
-
+import numpy as np
 
 def locate(values = None):
     
@@ -79,6 +79,12 @@ def locate(values = None):
    
     
     values['percision'] = str(percision)
+    
+    
+    
+    
+    
+    
     
 
     return values;
