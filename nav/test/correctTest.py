@@ -369,25 +369,9 @@ class correctTest(unittest.TestCase):
         self.assertEquals(actualResult['error'], 'lat is not valid')    
         
         
-    def test900_060ReturnErrorIfDegreePortionIsMissing(self):
-        self.setParm('op','correct')
-        self.setParm('lat','d32.3')
-        self.setParm('long','95d41.6')
-        self.setParm('altitude','13d42.3')
-        self.setParm('assumedLat','-53d38.4')
-        self.setParm('assumedLong','350d35.3')
-        actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'lat is not valid')    
         
-    def test900_061ReturnErrorIfDegreePortionIsMissing(self):
-        self.setParm('op','correct')
-        self.setParm('lat','16d32.3')
-        self.setParm('long','95d41.6')
-        self.setParm('altitude','13d42.3')
-        self.setParm('assumedLat','d38.4')
-        self.setParm('assumedLong','350d35.3')
-        actualResult = dispatch.dispatch(self.inputDictionary)
-        self.assertEquals(actualResult['error'], 'assumedLat is not valid')    
+        
+        
         
         
         
