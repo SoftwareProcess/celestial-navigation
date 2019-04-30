@@ -70,4 +70,4 @@ def locate(values = None):
     
     
     
-    return ewCorrection;
+    return presentLat;
