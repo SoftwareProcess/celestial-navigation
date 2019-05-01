@@ -108,7 +108,7 @@ def locate(values = None):
     
     for i in range(numOfCorrections):
         corDis, corAzm = tempList[i].split(',') 
-        pts += [[]*2]
+        pts += [[0.0]*2]
         pts[i][0] = float(corDis) * float(cos(radians(convertStrToDegrees(corAzm))))
         pts[i][1] = float(corDis) * sin(radians(convertStrToDegrees(corAzm))) 
     
