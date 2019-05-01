@@ -192,7 +192,31 @@ class locateTest(unittest.TestCase):
                           'op': 'locate'}        
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(actualResult, expectedResult)        
-        
+
+
+    def test100_070ShouldReturnCorrectResultThroughDispatch(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0]]') 
+        expectedResult = {'assumedLat': '-53d38.4', 
+                          'assumedLong': '350d35.3', 
+                          'corrections': '[[100,1d0.0]]',  
+                          'presentLat': '-51d58.4',
+                          'presentLong': '350d37.0',
+                          'percision': '0',
+                          'accuracy': 'NA',
+                          'op': 'locate'}        
+        actualResult = dispatch.dispatch(self.inputDictionary)
+        self.assertEquals(actualResult, expectedResult)
+
+
+
+
+
+
+
+###########################        
     def test900_010ShouldReturnErrorWhenassumedLatIsNotValid(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','90d0.0')
