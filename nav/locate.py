@@ -80,9 +80,17 @@ def locate(values = None):
                                  pow((float(corDis) * sin(radians(convertStrToDegrees(corAzm))) - ewCorrection), 2))
     percision = float(1)/numOfCorrections * tempSum                         
     percision = myRound(percision)
-                           
-   
-    
     values['percision'] = str(percision)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     return values;
