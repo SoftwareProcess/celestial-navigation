@@ -46,24 +46,50 @@ def locate(values = None):
             temp = -temp
         return temp  
  
-    def convexHull(points):
+#     def convexHull(points):
+#         points = sorted(set(points))
+#         if len(points) < 3:
+#             values['accuracy'] = 'NA'
+#             return None
+#         def cross(o, a, b):
+#             return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]) 
+#         lowHull=[]
+#         for p in points:
+#             while len(lowHull) >= 2 and cross(lowHull[-2], lowHull[-1], p) <= 0:
+#                 lowHull.pop()
+#             lowHull.append(p)          
+#         highHull=[]
+#         for p in points:
+#             while len(highHull) >= 2 and cross(highHull[-2], highHull[-1], p) <= 0:
+#                 highHull.pop()
+#             highHull.append(p)
+#         return lowHull[:-1] + highHull[:-1]
+ 
+ 
+    def convex_hull(points):
         points = sorted(set(points))
         if len(points) < 3:
-            values['accuracy'] = 'NA'
-            return None
+            return NULL
         def cross(o, a, b):
-            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]) 
-        lowHull=[]
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+
+        lower = []
         for p in points:
-            while len(lowHull) >= 2 and cross(lowHull[-2], lowHull[-1], p) <= 0:
-                lowHull.pop()
-            lowHull.append(p)          
-        highHull=[]
-        for p in points:
-            while len(highHull) >= 2 and cross(highHull[-2], highHull[-1], p) <= 0:
-                highHull.pop()
-            highHull.append(p)
-        return lowHull[:-1] + highHull[:-1]
+            while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+                lower.pop()
+            lower.append(p)
+
+        upper = []
+        for p in reversed(points):
+            while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+                upper.pop()
+            upper.append(p)
+ 
+        return lower[:-1] + upper[:-1]
+ 
+ 
+ 
+ 
  
  
     correctionString = values['corrections']
@@ -110,11 +136,11 @@ def locate(values = None):
         corDis, corAzm = tempList[i].split(',') 
         pts += [[0.0]*2]
         pts[i][0] = float(corDis) * float(cos(radians(convertStrToDegrees(corAzm))))
-        pts[i][1] = float(corDis) * sin(radians(convertStrToDegrees(corAzm))) 
+        pts[i][1] = float(corDis) * float(sin(radians(convertStrToDegrees(corAzm))))
         pts[i] = tuple(pts[i])
-    ptsList = convexHull(pts)
+    ptsList = convex_hull(pts)
     
-    temp = 0
+    temp = 0.0
     for i in range(len(ptsList)):
         if (i == len(ptsList) - 1):
             temp = temp + ptsList[i][0] * ptsList[0][1] - ptsList[i][1] * ptsList[0][0]
