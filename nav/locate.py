@@ -132,7 +132,7 @@ def locate(values = None):
     if (correctionString.count('[') == 0 or correctionString.count(']') == 0):
         values['error'] = 'correction is not valid'
         return values
-    if (correctionString.contains('(') or correctionString.contains(')') or correctionString.contains('{') or correctionString.contains('}')):
+    if ('(' in correctionString or ')' in correctionString or '{' in correctionString or '}' in correctionString):
         values['error'] = 'correction is not valid'
         return values
     tempList = []
