@@ -188,7 +188,7 @@ class locateTest(unittest.TestCase):
                           'presentLat': '-51d58.4',
                           'presntLong': '350d37.0',
                           'percision': '',
-                          'accuracy': 'NA'
+                          'accuracy': 'NA',
                           'op': 'locate'}        
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(actualResult, expectedResult)        
