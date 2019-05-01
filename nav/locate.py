@@ -115,7 +115,7 @@ def locate(values = None):
     if (values['assumedLong'][0] == "-"):
         values['error'] = 'assumedLong is not valid'
         return values    
-    if (not(values.has_key('correction')) or values['correction'] == ''):
+    if (not(values.has_key('corrections')) or values['corrections'] == ''):
         values['error'] = 'mandatory information is missing'
         return values 
 
