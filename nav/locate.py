@@ -103,13 +103,13 @@ def locate(values = None):
     if (not(values.has_key('assumedLat')) or values['assumedLat'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
-    if (validate('assumedLat', -90, 90, 'gt') == False):
+    if (validate(values['assumedLat'], -90, 90, 'gt') == False):
         values['error'] = 'assumedLat is not valid'
         return values 
     if (not(values.has_key('assumedLong')) or values['assumedLong'] == ''):
         values['error'] = 'mandatory information is missing'
         return values
-    if (validate('assumedLong', 0, 360, 'ge') == False):
+    if (validate(values['assumedLong'], 0, 360, 'ge') == False):
         values['error'] = 'assumedLong is not valid'
         return values
     if (values['assumedLong'][0] == "-"):
