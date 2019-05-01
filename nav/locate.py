@@ -9,9 +9,9 @@ import ast
 def locate(values = None):
 
     def validate(arg, lowerBound, upperBound, condition):
-        if ('d' not in values[arg]):
+        if ('d' not in arg):
             return False
-        x, y = values[arg].split('d')
+        x, y = arg.split('d')
         if (x == ''):
             return False
         x = x.lstrip('0')
