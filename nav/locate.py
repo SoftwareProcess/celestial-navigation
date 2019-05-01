@@ -7,6 +7,38 @@ from math import pow
 
 
 def locate(values = None):
+
+    def validate(arg, lowerBound, upperBound, condition):
+        if ('d' not in values[arg]):
+            return False
+        x, y = values[arg].split('d')
+        if (x == ''):
+            return False
+        x = x.lstrip('0')
+        if (x == ''):
+            x = '0'
+        y = y.lstrip('0')
+        if (y == ''):
+            y = '0'       
+        try:
+            y = int(y)
+        except ValueError:  
+            pass     
+        else:
+            return False
+        try:
+            if (condition == 'ge'):    
+                if (int(x) < lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                    return False  
+            if (condition == 'gt'):
+                if (int(x) <= lowerBound or int(x) >= upperBound or float(y) < 0.0 or float(y) >= 60.0):
+                    return False
+        except ValueError:
+            return False                 
+        y = str(float(y)).zfill(1) 
+        values[arg] = x + 'd' + y
+        return True
+
     
     
     def convertStrToDegrees(arg):
@@ -67,8 +99,22 @@ def locate(values = None):
  
         return lower[:-1] + upper[:-1]
  
- 
- 
+# validate parameters
+    if (not(values.has_key('assumedLat')) or values['assumedLat'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
+    if (validate('assumedLat', -90, 90, 'gt') == False):
+        values['error'] = 'assumedLat is not valid'
+        return values 
+    if (not(values.has_key('assumedLong')) or values['assumedLong'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values
+    if (validate('assumedLong', 0, 360, 'ge') == False):
+        values['error'] = 'assumedLong is not valid'
+        return values
+    if (values['assumedLong'][0] == "-"):
+        values['error'] = 'assumedLong is not valid'
+        return values    
  
  
  
