@@ -184,7 +184,7 @@ class locateTest(unittest.TestCase):
         self.setParm('corrections','[[100,1d0.0]]') 
         expectedResult = {'assumedLat': '-53d38.4', 
                           'assumedLong': '350d35.3', 
-                          'corrections': '[[100,1d0.1]]',  
+                          'corrections': '[[100,1d0.0]]',  
                           'presentLat': '-51d58.4',
                           'presentLong': '350d37.0',
                           'percision': '0',
