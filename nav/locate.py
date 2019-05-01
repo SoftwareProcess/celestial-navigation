@@ -146,7 +146,7 @@ def locate(values = None):
             temp = temp + ptsList[i][0] * ptsList[0][1] - ptsList[i][1] * ptsList[0][0]
         else:
             temp = temp + ptsList[i][0] * ptsList[i+1][1] - ptsList[i][1] * ptsList[i+1][0]
-    accuracy = temp / 2
+    accuracy = myRound(temp / 2)
     
     
     
