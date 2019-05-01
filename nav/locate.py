@@ -124,13 +124,13 @@ def locate(values = None):
     if (correctionString.startswith('[') and correctionString.endswith(']')):
         correctionString = correctionString[1:-1]
     else:
-        values['error'] = 'correction is not valid1'
+        values['error'] = 'correction is not valid'
         return values
     if (correctionString.count('[') != correctionString.count(']')):
-        values['error'] = 'correction is not valid2'
+        values['error'] = 'correction is not valid'
         return values
     if (correctionString.count('[') == 0 or correctionString.count(']') == 0):
-        values['error'] = 'correction is not valid3'
+        values['error'] = 'correction is not valid'
         return values
     tempList = []
     for i in range(len(correctionString)):
@@ -144,30 +144,30 @@ def locate(values = None):
 
     
     tempSum = 0
-#     try:
-#         for i in range(numOfCorrections):
-#             corDis, corAzm = tempList[i].split(',') 
-#             if (validate(corAzm, 0, 360, 'ge') == False):
-#                 values['error'] = 'correction is not valid4'
-#                 return values
-#             if (corAzm[0] == '-'):
-#                 values['error'] = 'correction is not valid5'
-#                 return values
-#             tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
-#     except:
-#         values['error'] = 'correction is not valid6'
-#         return values 
+    try:
+        for i in range(numOfCorrections):
+            corDis, corAzm = tempList[i].split(',') 
+            if (validate(corAzm, 0, 360, 'ge') == False):
+                values['error'] = 'correction is not valid'
+                return values
+            if (corAzm[0] == '-'):
+                values['error'] = 'correction is not valid'
+                return values
+            tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+    except:
+        values['error'] = 'correction is not valid'
+        return values 
     
     
-    for i in range(numOfCorrections):
-        corDis, corAzm = tempList[i].split(',') 
-        if (validate(corAzm, 0, 360, 'ge') == False):
-            values['error'] = 'correction is not valid4'
-            return values
-        if (corAzm[0] == '-'):
-            values['error'] = 'correction is not valid5'
-            return values
-        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+#     for i in range(numOfCorrections):
+#         corDis, corAzm = tempList[i].split(',') 
+#         if (validate(corAzm, 0, 360, 'ge') == False):
+#             values['error'] = 'correction is not valid4'
+#             return values
+#         if (corAzm[0] == '-'):
+#             values['error'] = 'correction is not valid5'
+#             return values
+#         tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
        
     
     
