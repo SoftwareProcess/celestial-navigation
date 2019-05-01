@@ -98,6 +98,9 @@ def locate(values = None):
     
     presentLat = convertMinutesToStr((convertStrToMinutes(values['assumedLat']) + nsCorrection))
     presentLong = convertMinutesToStr((convertStrToMinutes(values['assumedLong']) + ewCorrection))
+    values['presentLat'] = presentLat
+    values['presentLong'] = presentLong
+    
 # Percision    
     tempSum = 0
     for i in range(numOfCorrections):
@@ -117,15 +120,17 @@ def locate(values = None):
         pts[i][1] = float(corDis) * float(sin(radians(convertStrToDegrees(corAzm))))
         pts[i] = tuple(pts[i])
     ptsList = convex_hull(pts)
+    if (ptsList == None):
+        values['accuracy'] = 'NA'
+    else:
+        temp = 0.0
+        for i in range(len(ptsList)):
+            if (i == len(ptsList) - 1):
+                temp = temp + ptsList[i][0] * ptsList[0][1] - ptsList[i][1] * ptsList[0][0]
+            else:
+                temp = temp + ptsList[i][0] * ptsList[i+1][1] - ptsList[i][1] * ptsList[i+1][0]
+        accuracy = myRound(temp / 2)
+        values['accuracy'] = str(accuracy)
     
-    temp = 0.0
-    for i in range(len(ptsList)):
-        if (i == len(ptsList) - 1):
-            temp = temp + ptsList[i][0] * ptsList[0][1] - ptsList[i][1] * ptsList[0][0]
-        else:
-            temp = temp + ptsList[i][0] * ptsList[i+1][1] - ptsList[i][1] * ptsList[i+1][0]
-    accuracy = myRound(temp / 2)
     
-    
-    
-    return accuracy;
+    return values;
