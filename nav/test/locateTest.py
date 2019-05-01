@@ -201,7 +201,7 @@ class locateTest(unittest.TestCase):
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'assumedLat is not valid')     
         
-    def test900_010ShouldReturnErrorWhenCorrectionsIsNotAList(self):
+    def test900_020ShouldReturnErrorWhenCorrectionsIsNotAList(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','50d0.0')
         self.setParm('assumedLong','350d35.3') 
@@ -209,7 +209,7 @@ class locateTest(unittest.TestCase):
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'correction is not valid')       
 
-    def test900_010ShouldReturnErrorWhenElementInCorrectionsIsNotaList(self):
+    def test900_030ShouldReturnErrorWhenElementInCorrectionsIsNotaList(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','50d0.0')
         self.setParm('assumedLong','350d35.3') 
@@ -217,7 +217,7 @@ class locateTest(unittest.TestCase):
         actualResult = nav.locate(self.inputDictionary)
         self.assertEquals(actualResult['error'], 'correction is not valid')
         
-        def test900_010ShouldReturnErrorWhenElementInCorrectionsIsNotvalid(self):
+    def test900_040ShouldReturnErrorWhenElementInCorrectionsIsNotvalid(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','50d0.0')
         self.setParm('assumedLong','350d35.3') 
