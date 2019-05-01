@@ -36,7 +36,6 @@ def locate(values = None):
         except ValueError:
             return False                 
         y = str(float(y)).zfill(1) 
-        values[arg] = x + 'd' + y
         return True
 
     
