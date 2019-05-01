@@ -3,7 +3,7 @@ from math import radians
 from math import sin 
 from math import sqrt 
 from math import pow
-
+import ast
 
 
 def locate(values = None):
@@ -115,8 +115,13 @@ def locate(values = None):
     if (values['assumedLong'][0] == "-"):
         values['error'] = 'assumedLong is not valid'
         return values    
- 
- 
+    if (not(values.has_key('correction')) or values['correction'] == ''):
+        values['error'] = 'mandatory information is missing'
+        return values 
+    if (not(isinstance(ast.literal_eval(values['correction']), list))):
+        values['error'] = 'correction is not valid'
+        return values
+    
  
     correctionString = values['corrections']
     correctionString = correctionString[1:-1]
