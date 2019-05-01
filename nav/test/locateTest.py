@@ -186,7 +186,7 @@ class locateTest(unittest.TestCase):
                           'assumedLong': '350d35.3', 
                           'corrections': '[[100,1d0.1]]',  
                           'presentLat': '-51d58.4',
-                          'presntLong': '350d37.0',
+                          'presentLong': '350d37.0',
                           'percision': '0',
                           'accuracy': 'NA',
                           'op': 'locate'}        
