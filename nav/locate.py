@@ -145,19 +145,38 @@ def locate(values = None):
 
     
     tempSum = 0
-    try:
-        for i in range(numOfCorrections):
-            corDis, corAzm = tempList[i].split(',') 
-            if (validate(corAzm, 0, 360, 'ge') == False):
-                values['error'] = 'correction is not valid4'
-                return values
-            if (corAzm[0] == '-'):
-                values['error'] = 'correction is not valid5'
-                return values
-            tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
-    except:
-        values['error'] = 'correction is not valid6'
-        return values 
+#     try:
+#         for i in range(numOfCorrections):
+#             corDis, corAzm = tempList[i].split(',') 
+#             if (validate(corAzm, 0, 360, 'ge') == False):
+#                 values['error'] = 'correction is not valid4'
+#                 return values
+#             if (corAzm[0] == '-'):
+#                 values['error'] = 'correction is not valid5'
+#                 return values
+#             tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+#     except:
+#         values['error'] = 'correction is not valid6'
+#         return values 
+    
+    
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',') 
+        if (validate(corAzm, 0, 360, 'ge') == False):
+            values['error'] = 'correction is not valid4'
+            return values
+        if (corAzm[0] == '-'):
+            values['error'] = 'correction is not valid5'
+            return values
+        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+       
+    
+    
+    
+    
+    
+    
+    
     nsCorrection = tempSum / numOfCorrections
     
     tempSum = 0
