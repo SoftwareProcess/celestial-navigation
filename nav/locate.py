@@ -118,13 +118,18 @@ def locate(values = None):
     if (not(values.has_key('correction')) or values['correction'] == ''):
         values['error'] = 'mandatory information is missing'
         return values 
-    if (not(isinstance(ast.literal_eval(values['correction']), list))):
-        values['error'] = 'correction is not valid'
-        return values
+
     
  
     correctionString = values['corrections']
-    correctionString = correctionString[1:-1]
+    if (correctionString.startswith('[') and correctionString.endswith(']')):
+        correctionString = correctionString[1:-1]
+    else:
+        values['error'] = 'correction is not valid'
+        return values
+    if (correctionString.count('[') != correctionString.count(']')):
+        values['error'] = 'correction is not valid'
+        return values
     tempList = []
     for i in range(len(correctionString)):
         temp = ''
