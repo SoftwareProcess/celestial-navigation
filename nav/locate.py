@@ -3,7 +3,6 @@ from math import radians
 from math import sin 
 from math import sqrt 
 from math import pow
-import ast
 
 
 def locate(values = None):
@@ -160,23 +159,6 @@ def locate(values = None):
     except:
         values['error'] = 'correction is not valid'
         return values 
-    
-    
-#     for i in range(numOfCorrections):
-#         corDis, corAzm = tempList[i].split(',') 
-#         if (validate(corAzm, 0, 360, 'ge') == False):
-#             values['error'] = 'correction is not valid4'
-#             return values
-#         if (corAzm[0] == '-'):
-#             values['error'] = 'correction is not valid5'
-#             return values
-#         tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
-       
-    
-    
-    
-    
-    
     
     
     nsCorrection = tempSum / numOfCorrections
