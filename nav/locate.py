@@ -112,7 +112,7 @@ def locate(values = None):
         pts[i][0] = float(corDis) * float(cos(radians(convertStrToDegrees(corAzm))))
         pts[i][1] = float(corDis) * sin(radians(convertStrToDegrees(corAzm))) 
     
-    ptsList = convexHull(pts)
+    ptsList = convexHull(tuple(pts))
     
     temp = 0
     for i in range(len(ptsList)):
