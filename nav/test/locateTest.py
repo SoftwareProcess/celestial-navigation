@@ -150,15 +150,102 @@ class locateTest(unittest.TestCase):
         
         
         
+#     def test100_050ShouldReturnAccuracy(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','32d36.5')
+#         self.setParm('assumedLong','274d31.1') 
+#         self.setParm('corrections','[[50,45d0.0], [75,60d42.0],[100,300d11.2],[42,42d12.3],[70,60d45.0],[10,280d0.0]]')         
+#         expectedResult = 3184
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(expectedResult, actualResult)        
         
         
+#     def test100_051ShouldReturnAccuracyDictionary(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','32d36.5')
+#         self.setParm('assumedLong','274d31.1') 
+#         self.setParm('corrections','[[50,45d0.0], [75,60d42.0],[100,300d11.2],[42,42d12.3],[70,60d45.0],[10,280d0.0]]')         
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(actualResult['accuracy'], '3184')    
         
+#     def test100_060ShouldReturnPresnetDictionary(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         self.setParm('corrections','[[100,1d0.0]]')         
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(actualResult['presentLat'], '-51d58.4')        
+#         self.assertEquals(actualResult['presentLong'], '350d37.0')
         
+    def test100_060ShouldReturnCorrectResult(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0]]') 
+        expectedResult = {'assumedLat': '-53d38.4', 
+                          'assumedLong': '350d35.3', 
+                          'corrections': '[[100,1d0.0]]',  
+                          'presentLat': '-51d58.4',
+                          'presentLong': '350d37.0',
+                          'percision': '0',
+                          'accuracy': 'NA',
+                          'op': 'locate'}        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult, expectedResult)        
         
+    def test900_010ShouldReturnErrorWhenassumedLatIsNotValid(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','90d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0]]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'assumedLat is not valid')     
         
+    def test900_020ShouldReturnErrorWhenCorrectionsIsNotAList(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','([100,1d0.0])')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')       
+
+    def test900_030ShouldReturnErrorWhenElementInCorrectionsIsNotaList(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[(100,1d0.0)]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')
         
+    def test900_040ShouldReturnErrorWhenElementInCorrectionsIsNotvalid(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0], [100, -50d0.0]]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')
+    
+    def test900_050ShouldReturnErrorWhenElementInCorrectionsIsNotvalid(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0], (100, 50d0.0)]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')
+    
+    def test900_060ShouldReturnErrorWhenElementInCorrectionsIsNotvalid(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0], [abc, 50d0.0]]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')
         
-        
-        
-        
-            
+    def test900_070ShouldReturnErrorWhenDInCorrectionsIsMissing(self):
+        self.setParm('op','locate')
+        self.setParm('assumedLat','50d0.0')
+        self.setParm('assumedLong','350d35.3') 
+        self.setParm('corrections','[[100,1d0.0], [100, 500.0]]')        
+        actualResult = nav.locate(self.inputDictionary)
+        self.assertEquals(actualResult['error'], 'correction is not valid')    
+    
