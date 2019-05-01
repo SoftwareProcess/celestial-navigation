@@ -130,6 +130,9 @@ def locate(values = None):
     if (correctionString.count('[') != correctionString.count(']')):
         values['error'] = 'correction is not valid'
         return values
+    if (correctionString.count('[') == 0 or correctionString.count(']') == 0):
+        values['error'] = 'correction is not valid'
+        return values
     tempList = []
     for i in range(len(correctionString)):
         temp = ''
@@ -140,10 +143,21 @@ def locate(values = None):
             tempList.append(temp)
     numOfCorrections = len(tempList)
 
+    
     tempSum = 0
-    for i in range(numOfCorrections):
-        corDis, corAzm = tempList[i].split(',') 
-        tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm))) 
+    try:
+        for i in range(numOfCorrections):
+            corDis, corAzm = tempList[i].split(',') 
+            if (validate(corAzm, 0, 360, 'ge') == False):
+                values['error'] = 'correction is not valid'
+                return values
+            if (corAzm[0] == '-'):
+                values['error'] = 'correction is not valid'
+                return values
+            tempSum = tempSum + float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+    except:
+        values['error'] = 'correction is not valid'
+        return values 
     nsCorrection = tempSum / numOfCorrections
     
     tempSum = 0
