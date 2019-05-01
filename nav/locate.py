@@ -6,7 +6,6 @@ from math import pow
 
 
 def locate(values = None):
-
     def validate(arg, lowerBound, upperBound, condition):
         if ('d' not in arg):
             return False
@@ -203,7 +202,5 @@ def locate(values = None):
             else:
                 temp = temp + ptsList[i][0] * ptsList[i+1][1] - ptsList[i][1] * ptsList[i+1][0]
         accuracy = myRound(temp / 2)
-        values['accuracy'] = str(accuracy)
-    
-    
+        values['accuracy'] = str(accuracy)   
     return values;
