@@ -46,6 +46,26 @@ def locate(values = None):
             temp = -temp
         return temp  
  
+    def convexHull(points):
+        points = sorted(set(points))
+        if len(points) < 3:
+            values['accuracy'] = 'NA'
+            return None
+        def cross(o, a, b):
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]) 
+        lowHull=[]
+        for p in points:
+            while len(lowHull) >= 2 and cross(lowHull[-2], lowHull[-1], p) <= 0:
+                lowHull.pop()
+            lowHull.append(p)          
+        highHull=[]
+        for p in points:
+            while len(highHull) >= 2 and cross(highHull[-2], highHull[-1], p) <= 0:
+                highHull.pop()
+            highHull.append(p)
+        return lowHull[:-1] + highHull[:-1]
+ 
+ 
     correctionString = values['corrections']
     correctionString = correctionString[1:-1]
     tempList = []
@@ -82,15 +102,24 @@ def locate(values = None):
     percision = myRound(percision)
     values['percision'] = str(percision)
     
+# Accuracy    
+    
+    pts = []
+    for i in range(numOfCorrections):
+        corDis, corAzm = tempList[i].split(',') 
+        pts[i][0] = float(corDis) * cos(radians(convertStrToDegrees(corAzm)))
+        pts[i][1] = float(corDis) * sin(radians(convertStrToDegrees(corAzm))) 
+    
+    ptsList = convexHull(pts)
+    
+    temp = 0
+    for i in range(len(ptsList)):
+        if (i == len(ptsList) - 1):
+            temp = temp + ptsList[i][0] * ptsList[0][1] - ptsList[i][1] * ptsList[0][0]
+        else:
+            temp = temp + ptsList[i][0] * ptsList[i+1][1] - ptsList[i][1] * ptsList[i+1][0]
+    accuracy = temp / 2
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    return values;
+    return accuracy;
