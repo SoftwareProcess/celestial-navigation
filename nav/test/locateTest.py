@@ -168,15 +168,30 @@ class locateTest(unittest.TestCase):
 #         actualResult = nav.locate(self.inputDictionary)
 #         self.assertEquals(actualResult['accuracy'], '3184')    
         
-    def test100_060ShouldReturnPresnetDictionary(self):
+#     def test100_060ShouldReturnPresnetDictionary(self):
+#         self.setParm('op','locate')
+#         self.setParm('assumedLat','-53d38.4')
+#         self.setParm('assumedLong','350d35.3') 
+#         self.setParm('corrections','[[100,1d0.0]]')         
+#         actualResult = nav.locate(self.inputDictionary)
+#         self.assertEquals(actualResult['presentLat'], '-51d58.4')        
+#         self.assertEquals(actualResult['presentLong'], '350d37.0')
+        
+    def test100_060ShouldReturnCorrectResult(self):
         self.setParm('op','locate')
         self.setParm('assumedLat','-53d38.4')
         self.setParm('assumedLong','350d35.3') 
-        self.setParm('corrections','[[100,1d0.0]]')         
+        self.setParm('corrections','[[100,1d0.0]]') 
+        expectedResult = {'assumedLat': '-53d38.4', 
+                          'assumedLong': '350d35.3', 
+                          'corrections': '[[100,1d0.1]]',  
+                          'presentLat': '-51d58.4',
+                          'presntLong': '350d37.0',
+                          'percision': '',
+                          'accuracy': 'NA'
+                          'op': 'locate'}        
         actualResult = nav.locate(self.inputDictionary)
-        self.assertEquals(actualResult['presentLat'], '-51d58.4')        
-        self.assertEquals(actualResult['presentLong'], '350d37.0')
-        
+        self.assertEquals(actualResult, expectedResult)        
         
         
         
